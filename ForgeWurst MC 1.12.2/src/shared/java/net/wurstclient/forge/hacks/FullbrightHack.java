@@ -13,35 +13,28 @@ import net.wurstclient.fmlevents.WUpdateEvent;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 
-public final class FullbrightHack extends Hack
-{
-	public FullbrightHack()
-	{
-		super("全满亮度", "让你能在暗处看到一切.");
+public final class FullbrightHack extends Hack {
+	public FullbrightHack() {
+		super("夜视", "让你能在暗处看到一切.");
 		setCategory(Category.RENDER);
 	}
-	
+
 	@Override
-	protected void onEnable()
-	{
+	protected void onEnable() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	@SubscribeEvent
-	public void onUpdate(WUpdateEvent event)
-	{
-		if(isEnabled())
-		{
-			if(mc.gameSettings.gammaSetting < 16)
-				mc.gameSettings.gammaSetting =
-					Math.min(mc.gameSettings.gammaSetting + 0.5F, 16);
-			
+	public void onUpdate(WUpdateEvent event) {
+		if (isEnabled()) {
+			if (mc.gameSettings.gammaSetting < 16)
+				mc.gameSettings.gammaSetting = Math.min(mc.gameSettings.gammaSetting + 0.5F, 16);
+
 			return;
 		}
-		
-		if(mc.gameSettings.gammaSetting > 0.5F)
-			mc.gameSettings.gammaSetting =
-				Math.max(mc.gameSettings.gammaSetting - 0.5F, 0.5F);
+
+		if (mc.gameSettings.gammaSetting > 0.5F)
+			mc.gameSettings.gammaSetting = Math.max(mc.gameSettings.gammaSetting - 0.5F, 0.5F);
 		else
 			MinecraftForge.EVENT_BUS.unregister(this);
 	}

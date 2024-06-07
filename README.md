@@ -4,6 +4,8 @@ Wurst Client for Minecraft Forge.
 
 This repository only contains the source code and is not intended for end users. Go to https://forge.wurstclient.net/ for ready-to-use downloads and installation instructions.
 
+Forked from shijiao 
+
 ## How To Use This Code In Eclipse
 
 1. Clone this repository.
