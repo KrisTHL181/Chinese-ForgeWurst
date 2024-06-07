@@ -52,10 +52,7 @@ public final class AutoArmorHack extends Hack
 				+ " 这是不可能没有作弊的\n"
 				+ "这可能会引起怀疑.",
 			false);
-	private final SliderSetting delay =
-		new SliderSetting("延迟",
-			"切换下一件护甲前等待的Tick数."
-			2, 0, 20, 1, ValueDisplay.INTEGER);
+	private final SliderSetting delay = new SliderSetting("延迟", "切换下一件护甲前等待的Tick数.",2, 0, 20, 1, ValueDisplay.INTEGER);
 	
 	private int timer;
 	
