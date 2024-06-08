@@ -24,7 +24,7 @@ public final class Log4jCmd extends Command {
             try {
                 String host = args[1];
                 try {
-                    port = Integer.parseInt(args[2]);
+                    int port = Integer.parseInt(args[2]);
                 } catch (NumberFormatException e) {
                     throw new CmdSyntaxError("端口必须为一个>1且<65536的数字.");
                 }
