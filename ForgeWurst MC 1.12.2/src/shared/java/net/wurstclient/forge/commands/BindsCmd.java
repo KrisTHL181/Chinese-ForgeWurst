@@ -106,7 +106,7 @@ public final class BindsCmd extends Command {
 
 		ChatUtils.message(
 				"总共: " + keybinds + (keybinds == 1 ? " 热键" : " 热键"));
-		ChatUtils.message("Keybind list (page " + page + "/" + pages + ")");
+		ChatUtils.message("热键列表 (第 " + page + "页 / " + pages + ")");
 
 		for (int i = (page - 1) * 8; i < Math.min(page * 8, keybinds); i++) {
 			Keybind k = wurst.getKeybinds().get(i);

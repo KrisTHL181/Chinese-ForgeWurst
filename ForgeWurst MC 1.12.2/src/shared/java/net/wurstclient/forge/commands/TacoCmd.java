@@ -29,7 +29,7 @@ public final class TacoCmd extends Command {
 	private boolean enabled;
 
 	public TacoCmd() {
-		super("taco", "在你的物品栏中生成一个跳舞的玉米卷.", "Syntax: .taco");
+		super("taco", "在你的物品栏中生成一个跳舞的玉米卷.", "语法: .taco");
 	}
 
 	@Override

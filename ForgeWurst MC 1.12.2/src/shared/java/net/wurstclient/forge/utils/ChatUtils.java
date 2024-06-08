@@ -11,35 +11,29 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 
-public final class ChatUtils
-{
+public final class ChatUtils {
 	private static boolean enabled = true;
-	
-	public static void setEnabled(boolean enabled)
-	{
+
+	public static void setEnabled(boolean enabled) {
 		ChatUtils.enabled = enabled;
 	}
-	
-	public static void component(ITextComponent component)
-	{
-		if(enabled)
+
+	public static void component(ITextComponent component) {
+		if (enabled)
 			Minecraft.getMinecraft().ingameGUI.getChatGUI().printChatMessage(
-				new TextComponentString("\u00a7c[\u00a76Wurst\u00a7c]\u00a7r ")
-					.appendSibling(component));
+					new TextComponentString("\u00a7c[\u00a76Wurst\u00a7c]\u00a7r ")
+							.appendSibling(component));
 	}
-	
-	public static void message(String message)
-	{
+
+	public static void message(String message) {
 		component(new TextComponentString(message));
 	}
-	
-	public static void warning(String message)
-	{
-		message("\u00a7c[\u00a76\u00a7lWARNING\u00a7c]\u00a7r " + message);
+
+	public static void warning(String message) {
+		message("\u00a7c[\u00a76\u00a7l警告\u00a7c]\u00a7r " + message);
 	}
-	
-	public static void error(String message)
-	{
-		message("\u00a7c[\u00a74\u00a7lERROR\u00a7c]\u00a7r " + message);
+
+	public static void error(String message) {
+		message("\u00a7c[\u00a74\u00a7l错误\u00a7c]\u00a7r " + message);
 	}
 }

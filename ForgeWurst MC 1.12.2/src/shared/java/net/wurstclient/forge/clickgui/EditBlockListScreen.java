@@ -64,7 +64,7 @@ public final class EditBlockListScreen extends GuiScreen {
 		buttonList
 				.add(addButton = new GuiButton(0, 214, height - 56, 30, 20, "添加"));
 		buttonList.add(removeButton = new GuiButton(1, width - 150, height - 56,
-				100, 20, "Remove Selected"));
+				100, 20, "删除选定项"));
 		buttonList.add(
 				new GuiButton(2, width - 108, 8, 100, 20, "重置"));
 		buttonList.add(doneButton = new GuiButton(3, width / 2 - 100, height - 28, "完成"));

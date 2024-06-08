@@ -12,7 +12,7 @@ import net.wurstclient.forge.Command;
 
 public final class SayCmd extends Command {
 	public SayCmd() {
-		super("say", "发送给定的聊天信息.", "语法: .say <message>");
+		super("say", "发送给定的聊天信息.", "语法: .say <信息>");
 	}
 
 	@Override

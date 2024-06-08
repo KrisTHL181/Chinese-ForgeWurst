@@ -15,7 +15,7 @@ import net.wurstclient.forge.settings.Setting;
 public final class SetEnumCmd extends Command {
 	public SetEnumCmd() {
 		super("setenum", "修改枚举设置.",
-				"语法: .setenum <hack> <enum> <value>");
+				"语法: .setenum <外挂> <枚举> <值>");
 	}
 
 	@Override

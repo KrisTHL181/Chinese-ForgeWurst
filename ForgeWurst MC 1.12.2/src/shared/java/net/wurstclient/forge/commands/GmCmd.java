@@ -12,7 +12,7 @@ import net.wurstclient.forge.compatibility.WMinecraft;
 
 public final class GmCmd extends Command {
 	public GmCmd() {
-		super("gm", "/gamemode的快捷方式.", "语法: .gm <gamemode>");
+		super("gm", "/gamemode的快捷方式.", "语法: .gm <游戏模式>");
 	}
 
 	@Override

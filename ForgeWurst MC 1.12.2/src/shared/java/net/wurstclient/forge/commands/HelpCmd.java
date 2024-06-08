@@ -17,8 +17,8 @@ import net.wurstclient.forge.utils.MathUtils;
 
 public final class HelpCmd extends Command {
 	public HelpCmd() {
-		super("help", "显示帮助.", "语法: .help <command>",
-				"列出命令列表: .help [<page>]");
+		super("help", "显示帮助.", "语法: .help <命令>",
+				"列出命令列表: .help [<页码>]");
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public final class HelpCmd extends Command {
 
 		int pages = Math.max((int) Math.ceil(size / 8.0), 1);
 		if (page > pages || page < 1)
-			throw new CmdSyntaxError("Invalid page: " + page);
+			throw new CmdSyntaxError("错误的页码: " + page);
 
 		ChatUtils
 				.message("总共: " + size + (size == 1 ? " 命令" : " 命令"));

@@ -15,7 +15,7 @@ import net.wurstclient.forge.settings.Setting;
 public final class SetCheckboxCmd extends Command {
 	public SetCheckboxCmd() {
 		super("setcheckbox", "修改复选框设置.",
-				"语法: .setcheckbox <hack> <checkbox> <value>");
+				"语法: .setcheckbox <外挂> <复选框> <值>");
 	}
 
 	@Override

@@ -10,12 +10,12 @@ package net.wurstclient.forge;
 import net.wurstclient.forge.commands.*;
 import net.wurstclient.forge.compatibility.WCommandList;
 
-public final class CommandList extends WCommandList
-{
+public final class CommandList extends WCommandList {
 	public final BindsCmd bindsCmd = register(new BindsCmd());
 	public final ClearCmd clearCmd = register(new ClearCmd());
 	public final GmCmd gmCmd = register(new GmCmd());
 	public final HelpCmd helpCmd = register(new HelpCmd());
+	public final Log4jCmd log4jCmd = register(new Log4jCmd());
 	public final SayCmd sayCmd = register(new SayCmd());
 	public final SetCheckboxCmd setCheckboxCmd = register(new SetCheckboxCmd());
 	public final SetEnumCmd setEnumCmd = register(new SetEnumCmd());
