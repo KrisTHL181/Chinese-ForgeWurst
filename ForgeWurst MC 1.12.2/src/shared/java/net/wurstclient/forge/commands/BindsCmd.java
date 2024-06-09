@@ -19,8 +19,8 @@ import net.wurstclient.forge.utils.MathUtils;
 public final class BindsCmd extends Command {
 	public BindsCmd() {
 		super("绑定", "管理热键.", "语法: .binds add <键> <外挂名>",
-				".binds add <键> <命令>", ".binds remove <键>",
-				".binds list [<页码>]", ".binds remove-all", ".binds reset",
+				".binds add(添加) <键> <命令>", ".binds remove(删除) <键>",
+				".binds list(列表) [<页码>]", ".binds remove-all(全部删除)", ".binds reset(重置)",
 				"多个外挂/命令需要用';'分割.");
 	}
 
@@ -48,6 +48,28 @@ public final class BindsCmd extends Command {
 				break;
 
 			case "reset":
+				wurst.getKeybinds().loadDefaults();
+				ChatUtils.message("热键已全部重置.");
+				break;
+
+			case "添加":
+				add(args);
+				break;
+
+			case "删除":
+				remove(args);
+				break;
+
+			case "列表":
+				list(args);
+				break;
+
+			case "全部删除":
+				wurst.getKeybinds().removeAll();
+				ChatUtils.message("热键已全部移除.");
+				break;
+
+			case "重置":
 				wurst.getKeybinds().loadDefaults();
 				ChatUtils.message("热键已全部重置.");
 				break;

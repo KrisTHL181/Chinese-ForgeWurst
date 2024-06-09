@@ -39,6 +39,6 @@ public final class VrTweaksCmd extends Command {
 			ChatUtils.message("GUI按钮已开启.");
 		}
 
-		ChatUtils.message("Done!");
+		ChatUtils.message("完成!");
 	}
 }

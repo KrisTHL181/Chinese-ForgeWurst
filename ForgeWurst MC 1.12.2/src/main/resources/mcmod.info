@@ -6,7 +6,7 @@
   "version": "(zh_cn) ${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/KrisTHL181/Chinese-ForgeWurst/",
-  "updateJSON": "https://forge.wurstclient.net/api/v1/update.json",
+  "updateJSON": "https://raw.githubusercontent.com/KrisTHL181/Chinese-ForgeWurst/master/update.json",
   "authorList": ["Alexander01998", "(Translate) KrisTHL181"],
   "credits": "Copyright (C) 2017 - 2019 Wurst-Imperium. All rights reserved.",
   "logoFile": "assets/forgewurst/wurst-logo.png",

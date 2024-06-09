@@ -26,76 +26,67 @@ import net.wurstclient.forge.ForgeWurst;
 import net.wurstclient.forge.compatibility.WMinecraft;
 import net.wurstclient.forge.utils.ChatUtils;
 
-public class WurstUpdater
-{
+public class WurstUpdater {
 	private Thread thread;
 	private ITextComponent component;
-	
+
 	@SubscribeEvent
-	public void onUpdate(WUpdateEvent event)
-	{
-		if(thread == null)
-		{
+	public void onUpdate(WUpdateEvent event) {
+		if (thread == null) {
 			thread = new Thread(() -> checkForUpdates());
 			thread.start();
 			return;
 		}
-		
-		if(thread.isAlive())
+
+		if (thread.isAlive())
 			return;
-		
-		if(component != null)
+
+		if (component != null)
 			ChatUtils.component(component);
-		
+
 		MinecraftForge.EVENT_BUS.unregister(this);
 	}
-	
-	private void checkForUpdates()
-	{
+
+	private void checkForUpdates() {
 		Version newVersion = null;
-		
-		try
-		{
-			JsonElement json =
-				fetchJson("https://forge.wurstclient.net/api/v1/update.json");
+
+		try {
+			JsonElement json = fetchJson(
+					"https://raw.githubusercontent.com/KrisTHL181/Chinese-ForgeWurst/master/update.json");
 			JsonElement promos = json.getAsJsonObject().get("promos");
 			JsonElement recommended = promos.getAsJsonObject()
-				.get(WMinecraft.VERSION + "-recommended");
+					.get(WMinecraft.VERSION + "-recommended");
 			newVersion = new Version(recommended.getAsString());
-			
-		}catch(Exception e)
-		{
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		if(newVersion == null || newVersion.isInvalid())
-		{
+
+		if (newVersion == null || newVersion.isInvalid()) {
 			component = new TextComponentString(
-				"在检查更新时发生了异常."
-					+ " 点击 \u00a7n这里\u00a7r 来手动检测.");
+					"在检查更新时发生了异常."
+							+ " 点击 \u00a7n这里\u00a7r 来手动检测.");
 			ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_URL,
-				"https://forge.wurstclient.net/download/");
+					"https://forge.wurstclient.net/download/");
 			component.getStyle().setClickEvent(event);
 			return;
 		}
-		
-		if(!newVersion.isHigherThan(ForgeWurst.VERSION))
+
+		if (!newVersion.isHigherThan(ForgeWurst.VERSION))
 			return;
-		
+
 		component = new TextComponentString(
-			"ForgeWurst " + newVersion + " 可用."
-				+ " 点击 \u00a7n这里\u00a7r 来下载更新.");
+				"ForgeWurst " + newVersion + " 可用."
+						+ " 点击 \u00a7n这里\u00a7r 来下载更新.");
 		ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_URL,
-			"https://forge.wurstclient.net/download/");
+				"https://forge.wurstclient.net/download/");
 		component.getStyle().setClickEvent(event);
 	}
-	
-	private JsonElement fetchJson(String url) throws IOException
-	{
-		try(InputStream in = URI.create(url).toURL().openStream())
-		{
+
+	private JsonElement fetchJson(String url) throws IOException {
+		try (InputStream in = URI.create(url).toURL().openStream()) {
 			return new JsonParser()
-				.parse(new BufferedReader(new InputStreamReader(in)));
+					.parse(new BufferedReader(new InputStreamReader(in)));
 		}
 	}
 }

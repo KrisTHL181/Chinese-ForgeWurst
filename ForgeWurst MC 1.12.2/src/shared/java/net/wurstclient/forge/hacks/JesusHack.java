@@ -29,187 +29,173 @@ import net.wurstclient.forge.compatibility.WPlayer;
 import net.wurstclient.forge.settings.CheckboxSetting;
 import net.wurstclient.forge.utils.BlockUtils;
 
-public final class JesusHack extends Hack
-{
-	private final CheckboxSetting preventJumping =
-		new CheckboxSetting("水上行走",
-			"水上行走\n"
-				+ "在 NoCheat+(插件) 服务器上, 你仍然可以\n"
-				+ "在同时按住'潜行'和'跳跃'键时在水上跳跃\n"
-				+ "(这可能需要一些练习).",
+public final class JesusHack extends Hack {
+	private final CheckboxSetting preventJumping = new CheckboxSetting("水上行走",
+			"禁止跳跃\n"
+					+ "在 NoCheat+(插件) 服务器上, 你仍然可以\n"
+					+ "在同时按住'潜行'和'跳跃'键时在水上跳跃\n"
+					+ "(这可能需要一些练习).",
 			false);
 	private int tickTimer;
-	
-	public JesusHack()
-	{
+
+	public JesusHack() {
 		super("水上行走", "让你可以在水上行走\n"
-			+ "耶稣在~2000年前就使用了这个功能.");
+				+ "耶稣在~2000年前就使用了这个功能.");
 		setCategory(Category.MOVEMENT);
 		addSetting(preventJumping);
 	}
-	
+
 	@Override
-	protected void onEnable()
-	{
+	protected void onEnable() {
 		MinecraftForge.EVENT_BUS.register(this);
 		tickTimer = 2;
 	}
-	
+
 	@Override
-	protected void onDisable()
-	{
+	protected void onDisable() {
 		MinecraftForge.EVENT_BUS.unregister(this);
 	}
-	
+
 	@SubscribeEvent
-	public void onUpdate(WUpdateEvent event)
-	{
+	public void onUpdate(WUpdateEvent event) {
 		EntityPlayerSP player = event.getPlayer();
-		
+
 		// check if sneaking
-		if(player.isSneaking()
-			&& GameSettings.isKeyDown(mc.gameSettings.keyBindSneak))
+		if (player.isSneaking()
+				&& GameSettings.isKeyDown(mc.gameSettings.keyBindSneak))
 			return;
-		
+
 		// move up in water
-		if(player.isInWater())
-		{
+		if (player.isInWater()) {
 			player.motionY = 0.11;
 			tickTimer = 0;
 			return;
 		}
-		
+
 		// simulate jumping out of water
-		if(tickTimer == 0)
+		if (tickTimer == 0)
 			player.motionY = 0.30;
-		else if(tickTimer == 1)
+		else if (tickTimer == 1)
 			player.motionY = 0;
-		
+
 		// update timer
 		tickTimer++;
 	}
-	
+
 	@SubscribeEvent
-	public void onPacketOutput(WPacketOutputEvent event)
-	{
+	public void onPacketOutput(WPacketOutputEvent event) {
 		// check packet type
-		if(!(event.getPacket() instanceof CPacketPlayer))
+		if (!(event.getPacket() instanceof CPacketPlayer))
 			return;
-		
+
 		EntityPlayerSP player = WMinecraft.getPlayer();
-		CPacketPlayer packet = (CPacketPlayer)event.getPacket();
-		
+		CPacketPlayer packet = (CPacketPlayer) event.getPacket();
+
 		// check if packet contains a position
-		if(!(packet instanceof CPacketPlayer.Position
-			|| packet instanceof CPacketPlayer.PositionRotation))
+		if (!(packet instanceof CPacketPlayer.Position
+				|| packet instanceof CPacketPlayer.PositionRotation))
 			return;
-		
-		if(!isStandingOnLiquid(player))
+
+		if (!isStandingOnLiquid(player))
 			return;
-		
+
 		// if not actually moving, cancel packet
-		if(player.movementInput == null)
-		{
+		if (player.movementInput == null) {
 			event.setCanceled(true);
 			return;
 		}
-		
+
 		// get position
 		double x = packet.getX(0);
 		double y = packet.getY(0);
 		double z = packet.getZ(0);
-		
+
 		// offset y
-		if(player.ticksExisted % 2 == 0)
+		if (player.ticksExisted % 2 == 0)
 			y -= 0.05;
 		else
 			y += 0.05;
-		
+
 		// create new packet
 		Packet<?> newPacket;
-		if(packet instanceof CPacketPlayer.Position)
+		if (packet instanceof CPacketPlayer.Position)
 			newPacket = new CPacketPlayer.Position(x, y, z, true);
 		else
 			newPacket = new CPacketPlayer.PositionRotation(x, y, z,
-				packet.getYaw(0), packet.getPitch(0), true);
-		
+					packet.getYaw(0), packet.getPitch(0), true);
+
 		// send new packet
 		event.setPacket(newPacket);
 	}
-	
+
 	@SubscribeEvent
-	public void onGetLiquidCollisionBox(WGetLiquidCollisionBoxEvent event)
-	{
+	public void onGetLiquidCollisionBox(WGetLiquidCollisionBoxEvent event) {
 		EntityPlayerSP player = WMinecraft.getPlayer();
-		
-		if(isLiquidCollisionEnabled(player))
+
+		if (isLiquidCollisionEnabled(player))
 			event.setSolidCollisionBox();
 	}
-	
+
 	@SubscribeEvent
-	public void onEntityPlayerJump(WEntityPlayerJumpEvent event)
-	{
-		if(!preventJumping.isChecked())
+	public void onEntityPlayerJump(WEntityPlayerJumpEvent event) {
+		if (!preventJumping.isChecked())
 			return;
-		
+
 		EntityPlayer player = event.getPlayer();
-		if(player != WMinecraft.getPlayer())
+		if (player != WMinecraft.getPlayer())
 			return;
-			
+
 		// Allow jump when pressing the sneak key but not actually sneaking.
 		// This enables a glitch that allows the player to jump on water by
 		// pressing the jump and sneak keys at the exact same time or by
 		// pressing the sneak key while using BunnyHop.
-		if(GameSettings.isKeyDown(mc.gameSettings.keyBindSneak)
-			&& !player.isSneaking())
+		if (GameSettings.isKeyDown(mc.gameSettings.keyBindSneak)
+				&& !player.isSneaking())
 			return;
-		
-		if(!isStandingOnLiquid(player))
+
+		if (!isStandingOnLiquid(player))
 			return;
-		
+
 		event.setCanceled(true);
 	}
-	
-	private boolean isLiquidCollisionEnabled(EntityPlayer player)
-	{
-		if(player == null)
+
+	private boolean isLiquidCollisionEnabled(EntityPlayer player) {
+		if (player == null)
 			return false;
-		
-		if(player.isSneaking()
-			&& GameSettings.isKeyDown(mc.gameSettings.keyBindSneak))
+
+		if (player.isSneaking()
+				&& GameSettings.isKeyDown(mc.gameSettings.keyBindSneak))
 			return false;
-		
-		if(player.isInWater() || player.fallDistance > 3)
+
+		if (player.isInWater() || player.fallDistance > 3)
 			return false;
-		
+
 		return true;
 	}
-	
-	private boolean isStandingOnLiquid(EntityPlayer player)
-	{
-		if(!isLiquidCollisionEnabled(player))
+
+	private boolean isStandingOnLiquid(EntityPlayer player) {
+		if (!isLiquidCollisionEnabled(player))
 			return false;
-		
+
 		World world = WPlayer.getWorld(player);
 		boolean foundLiquid = false;
 		boolean foundSolid = false;
-		
+
 		// check collision boxes below player
 		AxisAlignedBB playerBox = player.getEntityBoundingBox();
 		playerBox = playerBox.union(playerBox.offset(0, -0.5, 0));
 		// Using expand() with negative values doesn't work in 1.10.2.
-		
-		for(AxisAlignedBB box : world.getCollisionBoxes(player, playerBox))
-		{
+
+		for (AxisAlignedBB box : world.getCollisionBoxes(player, playerBox)) {
 			BlockPos pos = new BlockPos(box.getCenter());
 			Material material = BlockUtils.getMaterial(pos);
-			
-			if(material == Material.WATER || material == Material.LAVA)
+
+			if (material == Material.WATER || material == Material.LAVA)
 				foundLiquid = true;
-			else if(material != Material.AIR)
+			else if (material != Material.AIR)
 				foundSolid = true;
 		}
-		
+
 		return foundLiquid && !foundSolid;
 	}
 }

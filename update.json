@@ -1,0 +1,10 @@
+{
+    "homepage": "https://github.com/KrisTHL181/Chinese-ForgeWurst/",
+    "1.12.2": {
+        "0.11": "https://github.com/KrisTHL181/Chinese-ForgeWurst/"
+    },
+    "promos": {
+        "1.12.2-recommended": "0.11",
+        "1.12.2-latest": "0.11"
+    }
+}

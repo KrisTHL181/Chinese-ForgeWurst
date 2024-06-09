@@ -7,8 +7,7 @@
  */
 package net.wurstclient.forge;
 
-public enum Category
-{
+public enum Category {
 	BLOCKS("方块"),
 	MOVEMENT("移动"),
 	COMBAT("战斗"),
@@ -16,16 +15,14 @@ public enum Category
 	CHAT("聊天"),
 	FUN("玩笑"),
 	OTHER("其他");
-	
+
 	private final String name;
-	
-	private Category(String name)
-	{
+
+	private Category(String name) {
 		this.name = name;
 	}
-	
-	public String getName()
-	{
+
+	public String getName() {
 		return name;
 	}
 }

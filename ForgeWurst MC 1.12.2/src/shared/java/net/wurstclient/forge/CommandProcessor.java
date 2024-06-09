@@ -45,7 +45,7 @@ public final class CommandProcessor
 		
 		if(cmd == null)
 		{
-			ChatUtils.error("Unknown command: ." + parts[0]);
+			ChatUtils.error("未知命令: ." + parts[0]);
 			if(input.startsWith("/"))
 				ChatUtils.message(
 					"使用 \".say " + input + "\" 来将其发送为一条聊天命令.");

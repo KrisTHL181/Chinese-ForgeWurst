@@ -64,7 +64,7 @@ public final class HelpCmd extends Command {
 
 		Command cmd = wurst.getCmds().get(cmdName);
 		if (cmd == null)
-			throw new CmdSyntaxError("Unknown command: ." + cmdName);
+			throw new CmdSyntaxError("未知命令: ." + cmdName);
 
 		ChatUtils.message("." + cmd.getName() + " - " + cmd.getDescription());
 		for (String line : cmd.getSyntax())

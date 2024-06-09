@@ -55,7 +55,7 @@ public final class NukerHack extends Hack {
 	private int id;
 
 	public NukerHack() {
-		super("Nuker", "自动破坏周围的方块.");
+		super("挖掘机", "自动破坏周围的方块.");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(mode);

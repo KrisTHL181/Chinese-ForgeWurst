@@ -16,7 +16,7 @@ import net.wurstclient.forge.utils.MathUtils;
 public final class SetSliderCmd extends Command {
 	public SetSliderCmd() {
 		super("setslider", "修改滑块设置.",
-				"语法: .setslider <hack> <slider> <value>");
+				"语法: .setslider <外挂名> <滑块> <值>");
 	}
 
 	@Override

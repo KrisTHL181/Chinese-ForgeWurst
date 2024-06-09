@@ -22,11 +22,10 @@ public final class Log4jCmd extends Command {
         else if (Integer.parseInt(args[2]) > 65536 || Integer.parseInt(args[2]) < 1) {
             throw new CmdSyntaxError("端口号必须>1且<65536.");
         } else {
-            String host = "127.0.0.1";
-            int port = 9091;
-            String cmd = "";
             try {
-                host = args[1];
+                String host = args[1];
+                int port = 25565;
+                String cmd = "";
                 try {
                     port = Integer.parseInt(args[2]);
                 } catch (NumberFormatException e) {

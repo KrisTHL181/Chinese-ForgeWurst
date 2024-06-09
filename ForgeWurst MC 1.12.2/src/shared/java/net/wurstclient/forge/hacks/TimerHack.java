@@ -55,18 +55,10 @@ public final class TimerHack extends Hack {
 					wurst.isObfuscated() ? "field_71428_T" : "timer");
 			fTimer.setAccessible(true);
 
-			if (WMinecraft.VERSION.equals("1.10.2")) {
-				Field fTimerSpeed = Timer.class.getDeclaredField(
-						wurst.isObfuscated() ? "field_74278_d" : "timerSpeed");
-				fTimerSpeed.setAccessible(true);
-				fTimerSpeed.setFloat(fTimer.get(mc), 50 / tickLength);
-
-			} else {
-				Field fTickLength = Timer.class.getDeclaredField(
-						wurst.isObfuscated() ? "field_194149_e" : "tickLength");
-				fTickLength.setAccessible(true);
-				fTickLength.setFloat(fTimer.get(mc), tickLength);
-			}
+			Field fTickLength = Timer.class.getDeclaredField(
+					wurst.isObfuscated() ? "field_194149_e" : "tickLength");
+			fTickLength.setAccessible(true);
+			fTickLength.setFloat(fTimer.get(mc), tickLength);
 
 		} catch (ReflectiveOperationException e) {
 			throw new RuntimeException(e);
