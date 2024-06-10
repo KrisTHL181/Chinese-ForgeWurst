@@ -7,8 +7,8 @@
  */
 package net.wurstclient.forge.commands;
 
+import net.minecraft.network.play.client.CPacketChatMessage;
 import net.wurstclient.forge.Command;
-import net.wurstclient.forge.utils.ChatUtils;
 
 public final class Log4jCmd extends Command {
     public Log4jCmd() {
