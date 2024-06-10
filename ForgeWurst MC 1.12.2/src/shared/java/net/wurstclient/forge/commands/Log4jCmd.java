@@ -12,7 +12,7 @@ import net.wurstclient.forge.utils.ChatUtils;
 
 public final class Log4jCmd extends Command {
     public Log4jCmd() {
-        super("log4j", "试图使用Log4j漏洞注入服务器, 无法检测是否成功.", "语法: .log4j <LDAP IP> <LDAP端口>");
+        super("log4j", "试图使用Log4j漏洞注入服务器.", "语法: .log4j <LDAP IP> <LDAP端口>\n" + "警告: 此功能需要在聊天框中发送信息, 且无法检测是否成功.");
     }
 
     @Override
