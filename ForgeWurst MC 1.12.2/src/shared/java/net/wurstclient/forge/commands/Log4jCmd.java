@@ -17,7 +17,7 @@ public final class Log4jCmd extends Command {
 
     @Override
     public void call(String[] args) throws CmdException {
-        if (args.length < 3)
+        if (args.length < 2)
             throw new CmdSyntaxError();
         else if (Integer.parseInt(args[2]) > 65536 || Integer.parseInt(args[2]) < 1) {
             throw new CmdSyntaxError("端口号必须>1且<65536.");
