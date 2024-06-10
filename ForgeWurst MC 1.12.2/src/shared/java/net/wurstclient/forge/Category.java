@@ -12,6 +12,7 @@ public enum Category {
 	MOVEMENT("移动"),
 	COMBAT("战斗"),
 	RENDER("渲染"),
+	OP("OP挂")
 	CHAT("聊天"),
 	FUN("玩笑"),
 	OTHER("其他");

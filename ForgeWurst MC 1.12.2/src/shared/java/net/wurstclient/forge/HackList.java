@@ -49,6 +49,7 @@ public final class HackList extends WHackList
 	public final GlideHack glideHack = register(new GlideHack());
 	public final ItemEspHack itemEspHack = register(new ItemEspHack());
 	public final JesusHack jesusHack = register(new JesusHack());
+	public final KickauraHack kickauraHack = register(new KickauraHack());
 	public final KillauraHack killauraHack = register(new KillauraHack());
 	public final MobEspHack mobEspHack = register(new MobEspHack());
 	public final MobSpawnEspHack mobSpawnEspHack =

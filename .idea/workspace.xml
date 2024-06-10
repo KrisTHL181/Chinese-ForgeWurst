@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6629342d-1fc6-4b44-bdb8-7ee11441af79" name="更改" comment="Fix Syntax(missing ',') Error" />
+    <list default="true" id="6629342d-1fc6-4b44-bdb8-7ee11441af79" name="更改" comment="Fix Syntax(missing ',') Error">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/HackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/HackList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/KeybindProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/KeybindProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/commands/HelpCmd.java" beforeDir="false" afterPath="$PROJECT_DIR$/ForgeWurst MC 1.12.2/src/shared/java/net/wurstclient/forge/commands/HelpCmd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,15 +60,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.升级 Gradle 包装器.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/KrisT/Desktop/ForgeWurst-master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.升级 Gradle 包装器.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/KrisT/Desktop/ForgeWurst-master",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">

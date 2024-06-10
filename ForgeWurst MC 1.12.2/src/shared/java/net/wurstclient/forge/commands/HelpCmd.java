@@ -50,7 +50,7 @@ public final class HelpCmd extends Command {
 
 		ChatUtils
 				.message("总共: " + size + (size == 1 ? " 命令" : " 命令"));
-		ChatUtils.message("命令列表 (第 " + page + "页 /" + pages + ")");
+		ChatUtils.message("命令列表 (第 " + page + " 页 /" + pages + " )");
 
 		for (int i = (page - 1) * 8; i < Math.min(page * 8, size); i++) {
 			Command c = cmds.get(i);

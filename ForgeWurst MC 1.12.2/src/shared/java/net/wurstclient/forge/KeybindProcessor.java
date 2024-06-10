@@ -12,45 +12,40 @@ import org.lwjgl.input.Keyboard;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
-public final class KeybindProcessor
-{
+public final class KeybindProcessor {
 	private final HackList hax;
 	private final KeybindList keybinds;
 	private final CommandProcessor cmdProcessor;
-	
+
 	public KeybindProcessor(HackList hax, KeybindList keybinds,
-		CommandProcessor cmdProcessor)
-	{
+			CommandProcessor cmdProcessor) {
 		this.hax = hax;
 		this.keybinds = keybinds;
 		this.cmdProcessor = cmdProcessor;
 	}
-	
+
 	@SubscribeEvent
-	public void onKeyInput(InputEvent.KeyInputEvent event)
-	{
+	public void onKeyInput(InputEvent.KeyInputEvent event) {
 		int keyCode = Keyboard.getEventKey();
-		if(keyCode == 0 || !Keyboard.getEventKeyState())
+		if (keyCode == 0 || !Keyboard.getEventKeyState())
 			return;
-		
+
 		String commands = keybinds.getCommands(Keyboard.getKeyName(keyCode));
-		if(commands == null)
+		if (commands == null)
 			return;
-		
+
 		commands = commands.replace(";", "\u00a7").replace("\u00a7\u00a7", ";");
-		for(String command : commands.split("\u00a7"))
-		{
+		for (String command : commands.split("\u00a7")) {
 			command = command.trim();
-			
-			if(command.startsWith("."))
+
+			if (command.startsWith("."))
 				cmdProcessor.runCommand(command.substring(1));
-			else if(command.contains(" "))
+			else if (command.contains(" "))
 				cmdProcessor.runCommand(command);
-			else
-			{
+			else {
 				Hack hack = hax.get(command);
-				
-				if(hack != null)
+
+				if (hack != null)
 					hack.setEnabled(!hack.isEnabled());
 				else
 					cmdProcessor.runCommand(command);
