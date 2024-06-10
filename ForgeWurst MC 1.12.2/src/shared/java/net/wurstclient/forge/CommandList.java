@@ -15,6 +15,7 @@ public final class CommandList extends WCommandList {
 	public final ClearCmd clearCmd = register(new ClearCmd());
 	public final GmCmd gmCmd = register(new GmCmd());
 	public final HelpCmd helpCmd = register(new HelpCmd());
+	public final ShiroCmd shiroCmd = register(new ShiroCmd());
 	public final Log4jCmd log4jCmd = register(new Log4jCmd());
 	public final SayCmd sayCmd = register(new SayCmd());
 	public final SetCheckboxCmd setCheckboxCmd = register(new SetCheckboxCmd());
