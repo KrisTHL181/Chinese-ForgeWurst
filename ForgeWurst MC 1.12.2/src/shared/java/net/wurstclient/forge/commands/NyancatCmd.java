@@ -20,16 +20,20 @@ import net.wurstclient.forge.Command;
 import net.wurstclient.forge.ForgeWurst;
 import net.wurstclient.forge.compatibility.WMinecraft;
 
-public final class TacoCmd extends Command {
-	private final ResourceLocation[] tacos = { new ResourceLocation(ForgeWurst.MODID, "taco1.png"),
-			new ResourceLocation(ForgeWurst.MODID, "taco2.png"),
-			new ResourceLocation(ForgeWurst.MODID, "taco3.png"),
-			new ResourceLocation(ForgeWurst.MODID, "taco4.png") };
+public final class NyancatCmd extends Command {
+	private final ResourceLocation[] nyancats = { new ResourceLocation(ForgeWurst.MODID, "nyancat1.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat2.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat3.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat4.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat5.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat6.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat7.png"),
+			new ResourceLocation(ForgeWurst.MODID, "nyancat8.png") };
 
 	private boolean enabled;
 
-	public TacoCmd() {
-		super("taco", "在你的物品栏中生成一个跳舞的玉米卷.", "语法: .taco");
+	public NyancatCmd() {
+		super("nyancat", "在你的物品栏中生成一只彩虹猫.", "语法: .nyancat");
 	}
 
 	@Override
@@ -56,9 +60,9 @@ public final class TacoCmd extends Command {
 		} else
 			GL11.glColor4f(1, 1, 1, 1);
 
-		int tacoId = WMinecraft.getPlayer().ticksExisted % 32 / 8;
-		ResourceLocation tacoLocation = tacos[tacoId];
-		mc.getTextureManager().bindTexture(tacoLocation);
+		int nyancatId = WMinecraft.getPlayer().ticksExisted % 32 / 8;
+		ResourceLocation nyancatLocation = nyancats[nyancatId];
+		mc.getTextureManager().bindTexture(nyancatLocation);
 
 		ScaledResolution sr = new ScaledResolution(mc);
 		int x = sr.getScaledWidth() / 2 + 44;

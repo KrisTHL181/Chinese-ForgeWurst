@@ -18,7 +18,7 @@ import net.wurstclient.forge.utils.MathUtils;
 
 public final class BindsCmd extends Command {
 	public BindsCmd() {
-		super("绑定", "管理热键.", "语法: .binds add <键> <外挂名>",
+		super("binds", "管理热键.", "语法: .binds add <键> <外挂名>",
 				".binds add(添加) <键> <命令>", ".binds remove(删除) <键>",
 				".binds list(列表) [<页码>]", ".binds remove-all(全部删除)", ".binds reset(重置)",
 				"多个外挂/命令需要用';'分割.");
