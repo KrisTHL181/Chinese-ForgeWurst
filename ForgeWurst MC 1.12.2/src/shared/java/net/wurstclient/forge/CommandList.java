@@ -20,6 +20,7 @@ public final class CommandList extends WCommandList {
 	public final SayCmd sayCmd = register(new SayCmd());
 	public final SetCheckboxCmd setCheckboxCmd = register(new SetCheckboxCmd());
 	public final SetEnumCmd setEnumCmd = register(new SetEnumCmd());
+	public final SetPosCmd setPosCmd = register(new SetPosCmd());
 	public final SetSliderCmd setSliderCmd = register(new SetSliderCmd());
 	public final TCmd tCmd = register(new TCmd());
 	public final NyancatCmd NyancatCmd = register(new NyancatCmd());

@@ -102,7 +102,7 @@ public final class BlockListEditButton extends Component
 		FontRenderer fr = WMinecraft.getFontRenderer();
 		String text = setting.getName() + ": " + setting.getBlockNames().size();
 		fr.drawString(text, x1, y1 + 2, 0xf0f0f0);
-		fr.drawString("Edit...", x3 + 2, y1 + 2, 0xf0f0f0);
+		fr.drawString("编辑 ...", x3 + 2, y1 + 2, 0xf0f0f0);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 	}
 	

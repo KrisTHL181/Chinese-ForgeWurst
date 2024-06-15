@@ -297,9 +297,9 @@ public final class ChestEspHack extends Hack
 	
 	private enum Style
 	{
-		BOXES("Boxes only", true, false),
-		LINES("Lines only", false, true),
-		LINES_AND_BOXES("Lines and boxes", true, true);
+		BOXES("仅限方框", true, false),
+		LINES("仅限线条", false, true),
+		LINES_AND_BOXES("线条和方框", true, true);
 		
 		private final String name;
 		private final boolean boxes;
