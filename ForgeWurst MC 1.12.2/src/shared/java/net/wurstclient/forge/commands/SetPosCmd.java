@@ -7,6 +7,7 @@
  */
 package net.wurstclient.forge.commands;
 
+import java.math.BigInteger;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.wurstclient.forge.Command;
 import net.wurstclient.forge.compatibility.WMinecraft;
