@@ -7,21 +7,27 @@
  */
 package net.wurstclient.forge.hacks;
 
+import java.util.List;
+
+import net.minecraft.client.gui.ChatLine;
+import net.minecraft.client.gui.GuiNewChat;
+import net.minecraft.client.gui.GuiUtilRenderComponents;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.wurstclient.fmlevents.WUpdateEvent;
+import net.wurstclient.fmlevents.WChatInputEvent;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
-import net.wurstclient.forge.utils.KeyBindingUtils;
+import net.wurstclient.forge.compatibility.WMinecraft;
+import net.wurstclient.forge.utils.MathUtils;
 
-public final class AutoWalkHack extends Hack
+public final class AntiknockbackHack extends Hack
 {
-	public AutoWalkHack()
-	{
-		super("自动行走", "让你能够自动行走.");
-		setCategory(Category.MOVEMENT);
-	}
-	
+    public Antiknockback() {
+        super("防击退", "让你不会被其他玩家击退.");
+        setCategory(Category.MOVEMENT);
+    }
+    
 	@Override
 	protected void onEnable()
 	{
@@ -32,12 +38,4 @@ public final class AutoWalkHack extends Hack
 	protected void onDisable()
 	{
 		MinecraftForge.EVENT_BUS.unregister(this);
-		KeyBindingUtils.resetPressed(mc.gameSettings.keyBindForward);
 	}
-	
-	@SubscribeEvent
-	public void onUpdate(WUpdateEvent event)
-	{
-		KeyBindingUtils.setPressed(mc.gameSettings.keyBindForward, true);
-	}
-}
