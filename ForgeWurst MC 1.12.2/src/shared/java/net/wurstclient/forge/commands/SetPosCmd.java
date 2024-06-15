@@ -7,7 +7,7 @@
  */
 package net.wurstclient.forge.commands;
 
-import java.math.BigInteger;
+import java.lang.Double;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.wurstclient.forge.Command;
 import net.wurstclient.forge.compatibility.WMinecraft;
@@ -27,13 +27,13 @@ public final class SetPosCmd extends Command {
 		if (!MathUtils.isInteger(args[0]) && !MathUtils.isInteger(args[1]) && !MathUtils.isInteger(args[2]) )
 			throw new CmdSyntaxError();
 
-        BigInteger posX = BigInteger.valueOf(args[0]);
-        BigInteger posY = BigInteger.valueOf(args[1]);
-        BigInteger posZ = BigInteger.valueOf(args[2]);
+        Double posX = Double.valueOf(args[0]);
+        Double posY = Double.valueOf(args[1]);
+        Double posZ = Double.valueOf(args[2]);
 
 		EntityPlayerSP player = WMinecraft.getPlayer();
 		player.setPosition(posX, posY, posZ);
 
-        // 使用 BigInteger 来避免用户输入大于 IntMax .
+        // 使用 Double 来避免用户输入大于 IntMax .
 	}
 }

