@@ -100,6 +100,7 @@ public final class KillauraHack extends Hack {
 		addSetting(range);
 		addSetting(priority);
 		addSetting(waitCooldown);
+		addSetting(waitCooldown);
 		addSetting(filterPlayers);
 		addSetting(filterSleeping);
 		addSetting(filterFlying);
@@ -132,6 +133,7 @@ public final class KillauraHack extends Hack {
 
 		if ((!waitCooldown.isChecked()) && (player.getCooledAttackStrength(0) < 1)){
 			return;
+		}
 		}
 		double rangeSq = Math.pow(range.getValue(), 2);
 		Stream<EntityLivingBase> stream = world.loadedEntityList
