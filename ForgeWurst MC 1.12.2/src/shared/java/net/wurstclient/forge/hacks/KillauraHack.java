@@ -59,7 +59,7 @@ public final class KillauraHack extends Hack {
 			Priority.values(), Priority.ANGLE);
 
 	private final CheckboxSetting waitCooldown = new CheckboxSetting(
-				"等待冷却", "只在冷却结束时攻击.", true);
+			"等待冷却", "只在冷却结束时攻击.", true);
 
 	private final CheckboxSetting filterPlayers = new CheckboxSetting(
 			"过滤玩家", "不攻击其他玩家.", false);
