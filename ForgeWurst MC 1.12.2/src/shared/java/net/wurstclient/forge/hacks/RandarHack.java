@@ -41,7 +41,7 @@ public final class RandarHack extends Hack
 	
     @SubscribeEvent
     public void onTossItem(ItemTossEvent event) {
-        crackItemDropCoordinate(event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ())
+        crackItemDropCoordinate(event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ());
     }
 
 	public static void crackItemDropCoordinate(double dropX, double dropY, double dropZ) {
