@@ -23,7 +23,8 @@ import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
 
 public final class TpauraHack extends Hack {
 	private final SliderSetting range = new SliderSetting("范围", 3, 1, 20, 0.05, ValueDisplay.DECIMAL);
-	private final CheckboxSetting noFixedArea = new CheckboxSetting("固定范围", true);
+	private final CheckboxSetting noFixedArea = new CheckboxSetting("固定区域", true);
+	private final CheckboxSetting movePosY = new CheckboxSetting("移动高度", false);
 
 	private boolean resetPos = true;
 	private double posX = 0;
@@ -32,10 +33,11 @@ public final class TpauraHack extends Hack {
 
 
 	public TpauraHack() {
-		super("传送光环", "自动攻击在你旁边的实体.\n"+"建议与'杀戮光环'一起使用.");
+		super("传送光环", "自动在范围内移动.\n"+"建议与'杀戮光环'一起使用.");
 		setCategory(Category.MOVEMENT);
 		addSetting(range);
 		addSetting(noFixedArea);
+		addSetting(movePosY);
 	}
 
 	@Override
@@ -50,6 +52,11 @@ public final class TpauraHack extends Hack {
 		resetPos = true;
 	}
 
+	public double randomInRange(double min, double max){
+		Random rand = new Random();
+		return (double)(min + (rand.nextDouble() * (max - min)));
+	}
+
 	@SubscribeEvent
 	public void onUpdate(WUpdateEvent event) {
 		EntityPlayerSP player = event.getPlayer();
@@ -62,21 +69,24 @@ public final class TpauraHack extends Hack {
             resetPos = false;
 		}
 
-		double rangeSq = Math.pow(range.getValue(), 2);
 		double newPosX, newPosY, newPosZ;
+
 		if (noFixedArea.isChecked()){
-			newPosX = posX - rangeSq + (double)(Math.random() * posX + rangeSq - posX - rangeSq+1);
-			newPosY = posY - rangeSq + (double)(Math.random() * posY + rangeSq - posY - rangeSq+1);
-			newPosZ = posZ - rangeSq + (double)(Math.random() * posZ + rangeSq - posZ - rangeSq+1);
+			newPosX = randomInRange(posX - range.getValue(), posX + range.getValue());
+			newPosY = randomInRange(posY - range.getValue(), posY + range.getValue());
+			newPosZ = randomInRange(posZ - range.getValue(), posZ + range.getValue());
 		}
 		else {
-			newPosX = player.posX - rangeSq + (double)(Math.random() * player.posX + rangeSq - player.posX - rangeSq+1);
-			newPosY = player.posY - rangeSq + (double)(Math.random() * player.posY + rangeSq - player.posY - rangeSq+1);
-			newPosZ = player.posZ - rangeSq + (double)(Math.random() * player.posZ + rangeSq - player.posZ - rangeSq+1);
+			newPosX = randomInRange(player.posX - range.getValue(), player.posX + range.getValue());
+			newPosY = randomInRange(player.posY - range.getValue(), player.posY + range.getValue());
+			newPosZ = randomInRange(player.posZ - range.getValue(), player.posZ + range.getValue());
 		}
-		player.setPosition(newPosX, newPosY, newPosZ);
-		// 错误: 找不到符号
-		// 符号:   变量 newPosX
-		// 位置: 类 TpauraHack
+
+		if (movePosY.isChecked()){
+			player.setPosition(newPosX, newPosY, newPosZ);
+			return;
+		}
+
+		player.setPosition(newPosX, player.posY, newPosZ);
 	}
 }
