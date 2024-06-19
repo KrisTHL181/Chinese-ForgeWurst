@@ -22,7 +22,7 @@ import net.wurstclient.forge.settings.SliderSetting;
 import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
 
 public final class TpauraHack extends Hack {
-	private final SliderSetting range = new SliderSetting("范围", 3, 1, 20, 0.05, ValueDisplay.DECIMAL);
+	private final SliderSetting range = new SliderSetting("范围", 3, 1, 20, 0.5, ValueDisplay.DECIMAL);
 	private final CheckboxSetting noFixedArea = new CheckboxSetting("固定区域", true);
 	private final CheckboxSetting movePosY = new CheckboxSetting("移动高度", false);
 
