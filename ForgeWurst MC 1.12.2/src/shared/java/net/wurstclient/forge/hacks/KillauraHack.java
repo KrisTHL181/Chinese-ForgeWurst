@@ -58,6 +58,9 @@ public final class KillauraHack extends Hack {
 					+ "\u00a7l血量\u00a7r - 攻击血量最低的实体.",
 			Priority.values(), Priority.ANGLE);
 
+	private final CheckboxSetting waitCooldown = new CheckboxSetting(
+				"等待冷却", "只在冷却结束时攻击.", true);
+
 	private final CheckboxSetting filterPlayers = new CheckboxSetting(
 			"过滤玩家", "不攻击其他玩家.", false);
 	private final CheckboxSetting filterSleeping = new CheckboxSetting(
@@ -96,6 +99,7 @@ public final class KillauraHack extends Hack {
 		setCategory(Category.COMBAT);
 		addSetting(range);
 		addSetting(priority);
+		addSetting(waitCooldown);
 		addSetting(filterPlayers);
 		addSetting(filterSleeping);
 		addSetting(filterFlying);
@@ -126,9 +130,9 @@ public final class KillauraHack extends Hack {
 		EntityPlayerSP player = event.getPlayer();
 		World world = WPlayer.getWorld(player);
 
-		if (player.getCooledAttackStrength(0) < 1)
+		if ((!waitCooldown.isChecked()) && (player.getCooledAttackStrength(0) < 1)){
 			return;
-
+		}
 		double rangeSq = Math.pow(range.getValue(), 2);
 		Stream<EntityLivingBase> stream = world.loadedEntityList
 				.parallelStream().filter(e -> e instanceof EntityLivingBase)
@@ -153,7 +157,6 @@ public final class KillauraHack extends Hack {
 
 				AxisAlignedBB box = e.getEntityBoundingBox();
 				box = box.union(box.offset(0, -filterFlying.getValue(), 0));
-				// Using expand() with negative values doesn't work in 1.10.2.
 				return world.collidesWithAnyBlock(box);
 			});
 
