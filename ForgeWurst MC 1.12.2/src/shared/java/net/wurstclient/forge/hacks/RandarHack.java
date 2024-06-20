@@ -77,7 +77,7 @@ public final class RandarHack extends Hack
         long origSeed = seed;
         for (int i = 0; i < 5000; i++) {
             for (int x = -23440; x <= 23440; x++) {
-                long z = (((seed ^ 25214903917L) - (long)seedSlider.getValue() - 10387319 - x * 341873128712L) * 211541297333629L) << 16 >> 16;
+                long z = (((seed ^ 25214903917L) - (long)seedSlider.getValueL() - 10387319 - x * 341873128712L) * 211541297333629L) << 16 >> 16;
                 if (z >= -23440 && z <= 23440) {
                     System.out.println("物品掉落在: " + dropX + " " + dropY + " " + dropZ);
                     System.out.println("因此, RNG测量是: " + measurement1 + " " + measurement2 + " " + measurement3);
