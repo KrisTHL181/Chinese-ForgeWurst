@@ -29,7 +29,7 @@ public final class RandarHack extends Hack
 	{
 		super("RND雷达", "让你能够通过挖掘方块定位他人坐标.\n请使用'.setslider RND雷达 世界种子 <种子>'设定服务器种子而非滑动滑块.");
 		setCategory(Category.MOVEMENT);
-        addSetting(seedSlider)
+        addSetting(seedSlider);
 	}
 
 	@Override
