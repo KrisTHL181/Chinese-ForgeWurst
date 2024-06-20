@@ -100,7 +100,6 @@ public final class KillauraHack extends Hack {
 		addSetting(range);
 		addSetting(priority);
 		addSetting(waitCooldown);
-		addSetting(waitCooldown);
 		addSetting(filterPlayers);
 		addSetting(filterSleeping);
 		addSetting(filterFlying);

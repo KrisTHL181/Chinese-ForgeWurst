@@ -7,9 +7,10 @@
  */
 package net.wurstclient.forge.commands;
 
-import net.wurstclient.fIorge.Command;
+import net.wurstclient.forge.Command;
 import net.wurstclient.forge.utils.ChatUtils;
 import net.minecraft.client.multiplayer.ServerData;
+import net.minecraft.client.Minecraft;
 
 public final class IpCmd extends Command {
 	public IpCmd() {
@@ -21,6 +22,8 @@ public final class IpCmd extends Command {
 	public void call(String[] args) throws CmdException {
 		if (args.length > 0)
 			throw new CmdSyntaxError();
-		String serverIp = ServerData.getServerIp();
-		ChatUtils.message("服务器IP: " + serverIp)
+		ServerData serverData = Minecraft.getMinecraft().getCurrentServerData();
+		String serverIp = serverData.serverIP;
+		ChatUtils.message("服务器IP: " + serverIp);
+	}
 }

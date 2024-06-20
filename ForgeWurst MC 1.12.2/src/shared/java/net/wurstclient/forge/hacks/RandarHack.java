@@ -12,18 +12,22 @@ import java.lang.Double;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.entity.Entity;
 import net.wurstclient.forge.utils.ChatUtils;
 import net.wurstclient.fmlevents.WUpdateEvent;
+import net.wurstclient.forge.settings.SliderSetting;
+import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 
 public final class RandarHack extends Hack
 {
-    // TODO: Setter WORLD_SEED
-    private static long WORLD_SEED = -4172144997902289642L; // change this for a server other than 2b2t
+    private final SliderSetting seedSlider =
+		new SliderSetting("世界种子", -4172144997902289642L, -9223372036854775808L, 9223372036854775807L, 1, ValueDisplay.INTEGER);
+
 	public RandarHack()
 	{
-		super("RND雷达", "让你能够通过挖掘方块定位他人坐标.");
+		super("RND雷达", "让你能够通过挖掘方块定位他人坐标.\n请使用'.setslider RND雷达 seed <种子>'设定服务器种子而非滑动滑块.");
 		setCategory(Category.MOVEMENT);
 	}
 
@@ -41,10 +45,11 @@ public final class RandarHack extends Hack
 	
     @SubscribeEvent
     public void onTossItem(ItemTossEvent event) {
-        crackItemDropCoordinate(event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ());
+        Entity itemEntity = event.getEntity();
+        crackItemDropCoordinate(itemEntity.getPosition().getX(), itemEntity.getPosition().getY(), itemEntity.getPosition().getZ());
     }
 
-	public static void crackItemDropCoordinate(double dropX, double dropY, double dropZ) {
+	public void crackItemDropCoordinate(double dropX, double dropY, double dropZ) {
         float spawnX = ((float) (dropX - (int) Math.floor(dropX) - 0.25d)) * 2;
         float spawnY = ((float) (dropY - (int) Math.floor(dropY) - 0.25d)) * 2;
         float spawnZ = ((float) (dropZ - (int) Math.floor(dropZ) - 0.25d)) * 2;
@@ -71,13 +76,13 @@ public final class RandarHack extends Hack
         long origSeed = seed;
         for (int i = 0; i < 5000; i++) {
             for (int x = -23440; x <= 23440; x++) {
-                long z = (((seed ^ 25214903917L) - WORLD_SEED - 10387319 - x * 341873128712L) * 211541297333629L) << 16 >> 16;
+                long z = (((seed ^ 25214903917L) - (long)seedSlider.getValue() - 10387319 - x * 341873128712L) * 211541297333629L) << 16 >> 16;
                 if (z >= -23440 && z <= 23440) {
                     System.out.println("物品掉落在: " + dropX + " " + dropY + " " + dropZ);
                     System.out.println("因此, RNG测量是: " + measurement1 + " " + measurement2 + " " + measurement3);
                     System.out.println("这表明 java.util.Random 的内部种子可能是 " + origSeed);
                     System.out.println("在林地区域找到了一个森林匹配项: X:" + x + " Z:" + z + " 这可能设置了种子为:" + seed);
-                    ChatUtils.message("定位到某人在: X:" + (x * 1280 - 128) + " , Z:" + (z * 1280 - 128) + " 和 X:" + (x * 1280 + 1151) + " , Z:" + (z * 1280 + 1151) + " 之间.");
+                    ChatUtils.message("定位到某玩家在: X:" + (x * 1280 - 128) + " , Z:" + (z * 1280 - 128) + " 和 X:" + (x * 1280 + 1151) + " , Z:" + (z * 1280 + 1151) + " 之间.");
                     return;
                 }
             }

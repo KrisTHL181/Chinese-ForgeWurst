@@ -21,4 +21,5 @@
 * 已全部翻译为中文
 * 合并了原仓库下的一个修复NullPointerException的补丁([https://github.com/Wurst-Imperium/ForgeWurst/pull/2](https://github.com/Wurst-Imperium/ForgeWurst/pull/2))
 * 删除了 MC 1.10.2 版本的支持 (删除了README.md中相应的文本)
-* 在命令中加入了一些漏洞利用功能 (如Log4j和Shir)
+* 在命令中加入了一些漏洞利用功能 (如Log4j和Shiro)
+* 加入了部分功能 (如TpAura)
