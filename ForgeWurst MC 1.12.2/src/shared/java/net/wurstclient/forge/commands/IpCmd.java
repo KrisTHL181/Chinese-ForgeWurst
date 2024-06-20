@@ -23,8 +23,8 @@ public final class IpCmd extends Command {
 		if (args.length > 0)
 			throw new CmdSyntaxError();
 		ServerData serverData = Minecraft.getMinecraft().getCurrentServerData();
-		if serverData == null{
-			ChatUtils.warning("获取失败.")
+		if (serverData == null){
+			ChatUtils.warning("获取失败.");
 			return;
 		}
 		String serverIp = serverData.serverIP;
