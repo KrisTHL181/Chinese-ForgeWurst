@@ -34,7 +34,20 @@ public final class MathUtils
 			return false;
 		}
 	}
-	
+
+	public static boolean isLong(String s)
+	{
+		try
+		{
+			Long.parseLong(s);
+			return true;
+			
+		}catch(NumberFormatException e)
+		{
+			return false;
+		}
+	}
+
 	public static int floor(float value)
 	{
 		int i = (int)value;
