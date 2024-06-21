@@ -36,7 +36,7 @@ public final class AutoToolHack extends Hack {
 			"修复模式", "不会使用即将损坏的工具.", false);
 
 	public AutoToolHack() {
-		super("自动工具",
+		super("自动切换工具",
 				"自动使用最快的\n"
 						+ "在背包中适用的工具\n"
 						+ "在你试图破坏方块时.");
