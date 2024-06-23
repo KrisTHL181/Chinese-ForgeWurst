@@ -130,7 +130,7 @@ public final class KillauraHack extends Hack {
 		EntityPlayerSP player = event.getPlayer();
 		World world = WPlayer.getWorld(player);
 
-		if ((!waitCooldown.isChecked()) && (player.getCooledAttackStrength(0) < 1)){
+		if ((waitCooldown.isChecked()) && (player.getCooledAttackStrength(0) < 1)){
 			return;
 		}
 

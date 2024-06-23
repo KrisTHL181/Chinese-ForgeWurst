@@ -61,7 +61,6 @@ public final class HackList extends WHackList
 	public final NukerHack nukerHack = register(new NukerHack());
 	public final PlayerEspHack playerEspHack = register(new PlayerEspHack());
 	public final RadarHack radarHack = register(new RadarHack());
-	public final RandarHack randarHack = register(new RandarHack());
 	public final RainbowUiHack rainbowUiHack = register(new RainbowUiHack());
 	public final SneakHack sneakHack = register(new SneakHack());
 	public final SpiderHack spiderHack = register(new SpiderHack());
