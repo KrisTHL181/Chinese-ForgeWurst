@@ -45,7 +45,7 @@ public final class XRayHack extends Hack {
 
 	@Override
 	public String getRenderName() {
-		return "X-Wurst";
+		return "矿物透视";
 	}
 
 	@Override
