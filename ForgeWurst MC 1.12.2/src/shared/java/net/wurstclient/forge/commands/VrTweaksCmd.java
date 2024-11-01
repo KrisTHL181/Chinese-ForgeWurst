@@ -13,7 +13,7 @@ import net.wurstclient.forge.utils.ChatUtils;
 
 public final class VrTweaksCmd extends Command {
 	public VrTweaksCmd() {
-		super("vrtweaks", "调整 ViveCraft 的设置.",
+		super("vrtweaks", "为 ViveCraft 开启外挂端设置.",
 				"语法: .vrtweaks");
 	}
 

@@ -1,2 +1,26 @@
-.history
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
 .idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+.vscode
+.history
+
+ForgeWurst-0.11-MC1.12.2.jar
