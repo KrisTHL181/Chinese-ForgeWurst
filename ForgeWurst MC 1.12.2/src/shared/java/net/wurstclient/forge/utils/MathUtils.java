@@ -9,28 +9,20 @@ package net.wurstclient.forge.utils;
 
 public final class MathUtils
 {
-	public static boolean isInteger(String s)
-	{
-		try
-		{
+	public static boolean isInteger(String s) {
+		try {
 			Integer.parseInt(s);
 			return true;
-			
-		}catch(NumberFormatException e)
-		{
+		} catch(NumberFormatException e) {
 			return false;
 		}
 	}
 	
-	public static boolean isDouble(String s)
-	{
-		try
-		{
+	public static boolean isDouble(String s) {
+		try {
 			Double.parseDouble(s);
 			return true;
-			
-		}catch(NumberFormatException e)
-		{
+		} catch(NumberFormatException e) {
 			return false;
 		}
 	}
@@ -71,6 +63,11 @@ public final class MathUtils
 	}
 	
 	public static double clamp(double num, double min, double max)
+	{
+		return num < min ? min : num > max ? max : num;
+	}
+
+	public static long clamp(long num, long min, long max)
 	{
 		return num < min ? min : num > max ? max : num;
 	}
