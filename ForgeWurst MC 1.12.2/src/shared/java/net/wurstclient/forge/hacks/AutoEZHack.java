@@ -18,65 +18,62 @@ import net.wurstclient.forge.Hack;
 import net.wurstclient.forge.utils.ChatUtils;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
+public final class AutoEZHack extends Hack {
+	private final static EnumSetting<Words> words = new EnumSetting<>("文本", Words.values(), Words.EZ);
 
-public final class AutoEZHack extends Hack
-{
-    private final EnumSetting<Words> word =
-		new EnumSetting<>("样式", Words.values(), Words.EZ);
-
-	public AutoEZHack()
-	{
+	public AutoEZHack() {
 		super("自动嘲讽",
-			"让你杀死其他玩家后自动嘲讽对方.");
+				"让你杀死其他玩家后自动嘲讽对方.");
 		setCategory(Category.CHAT);
+		addSetting(words);
 	}
-	
+
 	@Override
-	protected void onEnable()
-	{
+	protected void onEnable() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
-	
+
 	@Override
-	protected void onDisable()
-	{
+	protected void onDisable() {
 		MinecraftForge.EVENT_BUS.unregister(this);
 	}
 
-    @SubscribeEvent
-    public static void onPlayerKill(LivingDeathEvent event) {
-        if (event.getSource().getTrueSource() instanceof PlayerEntity && event.getEntityLiving() instanceof PlayerEntity) {
-            PlayerEntity killer = (PlayerEntity) event.getSource().getTrueSource();
-            PlayerEntity victim = (PlayerEntity) event.getEntityLiving();
-            if (killer = WMinecraft.getPlayer()){
-                String sendWord = word.getSelected().word;
-                word = sendWord.replace("{name}", victim.getName());
-                word = sendWord.replace("{self}", killer.getName());
-                CPacketChatMessage chatMsg = new CPacketChatMessage(sendWord);
-                WMinecraft.getMinecraft().getConnection().sendPacket(chatMsg);
-            }
-        }
-    }
+	@SubscribeEvent
+	public static void onPlayerKill(LivingDeathEvent event) {
+		if (event.getSource().getTrueSource() instanceof EntityPlayer
+				&& event.getEntityLiving() instanceof EntityPlayer) {
+			EntityPlayer killer = (EntityPlayer) event.getSource().getTrueSource();
+			EntityPlayer victim = (EntityPlayer) event.getEntityLiving();
+			if (killer == WMinecraft.getPlayer()) {
+				String sendWord = words.getSelected().word;
+				sendWord = sendWord.replace("{name}", victim.getName());
+				if (killer != null) {
+					sendWord = sendWord.replace("{self}", killer.getName());
+				} else {
+					sendWord = sendWord.replace("{self}", "我");
+				}
+				CPacketChatMessage chatMsg = new CPacketChatMessage(sendWord);
+				WMinecraft.getMinecraft().getConnection().sendPacket(chatMsg);
+			}
+		}
+	}
 
-	private enum Words
-	{
+	private enum Words {
 		EZ("EZ", "EZ LOL"),
 		FUN("笑死我了", "人机 {name} 笑死我了hhhh"),
 		NOOB("菜就多练", "乐子 {name} 菜就多练"),
-        JOKER("小丑", "小丑 {name} 被 {self} 打爆了!");
+		JOKER("小丑", "小丑 {name} 被 {self} 打爆了!");
 
 		private final String name;
 		private final String word;
 
-		private Words(String name, String word;)
-		{
+		private Words(String name, String word) {
 			this.name = name;
-			self.word = word
+			this.word = word;
 		}
 
 		@Override
-		public String toString()
-		{
+		public String toString() {
 			return name;
 		}
 	}
