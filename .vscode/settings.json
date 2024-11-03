@@ -8,5 +8,6 @@
             "name": "JavaSE-1.8",
             "path": "E:\\java\\Zulu8\\"
         }
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
