@@ -15,7 +15,7 @@ public abstract class Command extends WForgeRegistryEntry<Command>
 {
 	protected static final ForgeWurst wurst = ForgeWurst.getForgeWurst();
 	protected static final Minecraft mc = Minecraft.getMinecraft();
-	
+
 	private final String name;
 	private final String description;
 	private final String[] syntax;

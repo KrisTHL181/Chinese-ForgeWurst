@@ -32,4 +32,8 @@ public final class WMinecraft
 	{
 		return mc.fontRenderer;
 	}
+
+	public static Minecraft getMinecraft(){
+		return mc;
+	}
 }

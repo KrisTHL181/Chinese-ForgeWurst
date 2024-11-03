@@ -31,6 +31,7 @@ public final class HackList extends WHackList
 	public final AntiSpamHack antiSpamHack = register(new AntiSpamHack());
 	public final AntiKnockbackHack antiKnockbackHack = register(new AntiKnockbackHack());
 	public final AutoArmorHack autoArmorHack = register(new AutoArmorHack());
+	public final AutoEZHack autoEZHack = register(new AutoEZHack());
 	public final AutoFarmHack autoFarmHack = register(new AutoFarmHack());
 	public final AutoFishHack autoFishHack = register(new AutoFishHack());
 	public final AutoSprintHack autoSprintHack = register(new AutoSprintHack());
