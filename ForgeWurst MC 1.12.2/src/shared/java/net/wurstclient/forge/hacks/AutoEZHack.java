@@ -61,7 +61,7 @@ public final class AutoEZHack extends Hack {
 					return;
 				}
 				CPacketChatMessage chatMsg = new CPacketChatMessage(sendWord);
-				WMinecraft.getMinecraft().getConnection().sendPacket(chatMsg);
+				mc.getConnection().sendPacket(chatMsg);
 			}
 		}
 	}

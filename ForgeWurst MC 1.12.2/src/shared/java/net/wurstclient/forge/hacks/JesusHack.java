@@ -31,7 +31,7 @@ import net.wurstclient.forge.utils.BlockUtils;
 
 public final class JesusHack extends Hack {
 	private final CheckboxSetting preventJumping = new CheckboxSetting("水上行走",
-			"禁止跳跃\n"
+			"阻止跳跃\n"
 					+ "在 NoCheat+(插件) 服务器上, 你仍然可以\n"
 					+ "在同时按住'潜行'和'跳跃'键时在水上跳跃\n"
 					+ "(这可能需要一些练习).",
