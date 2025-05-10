@@ -65,9 +65,9 @@ public class WurstUpdater {
 		if (newVersion == null || newVersion.isInvalid()) {
 			component = new TextComponentString(
 					"在检查更新时发生了异常."
-							+ " 点击 \u00a7n这里\u00a7r 来手动检测.");
+							+ " 点击 \u00a7n这里\u00a7r 来手动检查.");
 			ClickEvent event = new ClickEvent(ClickEvent.Action.OPEN_URL,
-					"https://forge.wurstclient.net/download/");
+					"https://github.com/KrisTHL181/Chinese-ForgeWurst/releases");
 			component.getStyle().setClickEvent(event);
 			return;
 		}

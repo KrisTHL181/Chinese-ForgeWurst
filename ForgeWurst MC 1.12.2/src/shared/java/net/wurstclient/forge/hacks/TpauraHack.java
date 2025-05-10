@@ -1,13 +1,12 @@
 /*
  * Copyright (C) 2017 - 2019 | Wurst-Imperium | All rights reserved.
- *
+ * Modified by KrisTHL181 in 2025
+ * 
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
  * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
  */
 package net.wurstclient.forge.hacks;
-
-import java.util.Random;
 
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.wurstclient.forge.Category;
@@ -18,7 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.wurstclient.forge.settings.CheckboxSetting;
 import net.wurstclient.forge.settings.SliderSetting;
 import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
-
+import java.util.concurrent.ThreadLocalRandom;
 public final class TpauraHack extends Hack {
 	private final SliderSetting range = new SliderSetting("范围", 3, 1, 20, 0.5, ValueDisplay.DECIMAL);
 	private final CheckboxSetting noFixedArea = new CheckboxSetting("固定区域", true);
@@ -51,8 +50,7 @@ public final class TpauraHack extends Hack {
 	}
 
 	public double randomInRange(double min, double max){
-		Random rand = new Random();
-		return (double)(min + (rand.nextDouble() * (max - min)));
+		return ThreadLocalRandom.current().nextDouble(min, max);
 	}
 
 	@SubscribeEvent

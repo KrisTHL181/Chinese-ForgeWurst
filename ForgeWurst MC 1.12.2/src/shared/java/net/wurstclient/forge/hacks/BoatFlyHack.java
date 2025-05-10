@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2017 - 2019 | Wurst-Imperium | All rights reserved.
+ * Modified by KrisTHL181 in 2025
  *
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
@@ -23,7 +24,7 @@ public final class BoatFlyHack extends Hack {
 		"允许更改前进速度",
 		"允许\u00a7e'前进速度'\u00a7r被更改, 但这将禁用平滑加速.",
 		false);
-	
+
 	private final SliderSetting forwardSpeed = new SliderSetting(
 		"前进速度", 1, 0.05, 5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
 	
