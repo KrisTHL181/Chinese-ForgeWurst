@@ -18,7 +18,7 @@ import net.wurstclient.forge.settings.SliderSetting;
 public final class FastLadderHack extends Hack
 {
 	private final SliderSetting climbingSpeed = new SliderSetting(
-		"爬梯速度", 0.25, 0.05, 1, 0.05, SliderSetting.ValueDisplay.DECIMAL);
+		"爬梯速度", 0.25, 0.1, 1, 0.05, SliderSetting.ValueDisplay.DECIMAL);
 	public FastLadderHack()
 	{
 		super("快速爬梯", "让你能更快的爬上梯子.");
@@ -49,7 +49,6 @@ public final class FastLadderHack extends Hack
 			&& player.movementInput.moveStrafe == 0)
 			return;
 		
-		if(player.motionY < 0.25)
-			player.motionY = climbingSpeed.getValue();
+		player.motionY = climbingSpeed.getValue();
 	}
 }
