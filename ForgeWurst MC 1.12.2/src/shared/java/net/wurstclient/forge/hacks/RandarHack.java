@@ -15,19 +15,19 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.Entity;
 import net.wurstclient.forge.utils.ChatUtils;
 import net.wurstclient.fmlevents.WUpdateEvent;
-import net.wurstclient.forge.settings.LongTypeSliderSetting;
-import net.wurstclient.forge.settings.LongTypeSliderSetting.LongValueDisplay;
+import net.wurstclient.forge.settings.SliderSetting;
+import net.wurstclient.forge.settings.SliderSetting.LongValueDisplay;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 
 public final class RandarHack extends Hack
 {
-    private final LongTypeSliderSetting seedSlider =
-		new LongTypeSliderSetting("世界种子", -4172144997902289642L, -9223372036854775808L, 9223372036854775807L, 1, LongValueDisplay.INTEGER);
+    private final SliderSetting seedSlider =
+		new SliderSetting("世界种子", -4172144997902289642L, -9223372036854775808L, 9223372036854775807L, 1, LongValueDisplay.INTEGER);
 
 	public RandarHack()
 	{
-		super("RND雷达", "让你能够通过挖掘方块定位他人坐标.\n请使用'.setlongtypeslider RND雷达 世界种子 <种子>'设定服务器种子而非滑动滑块.");
+		super("RND雷达", "让你能够通过挖掘方块定位他人坐标.\n请使用'.setslider RND雷达 世界种子 <种子>'设定服务器种子而非滑动滑块.");
 		setCategory(Category.MOVEMENT);
         addSetting(seedSlider);
 	}

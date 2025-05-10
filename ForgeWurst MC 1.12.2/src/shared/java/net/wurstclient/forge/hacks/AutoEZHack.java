@@ -17,15 +17,19 @@ import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 import net.wurstclient.forge.utils.ChatUtils;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.wurstclient.forge.settings.CheckboxSetting;
 
 public final class AutoEZHack extends Hack {
 	private final static EnumSetting<Words> words = new EnumSetting<>("文本", Words.values(), Words.EZ);
+	private final CheckboxSetting withClientName = new CheckboxSetting(
+		"输出挂名", "自动宣传你使用的外挂.", false);
 
 	public AutoEZHack() {
 		super("自动嘲讽",
 				"让你杀死其他玩家后自动嘲讽对方.");
 		setCategory(Category.CHAT);
 		addSetting(words);
+		addSetting(withClientName);
 	}
 
 	@Override
@@ -39,7 +43,7 @@ public final class AutoEZHack extends Hack {
 	}
 
 	@SubscribeEvent
-	public static void onPlayerKill(LivingDeathEvent event) {
+	public void onPlayerKill(LivingDeathEvent event) {
 		if (event.getSource().getTrueSource() instanceof EntityPlayer
 				&& event.getEntityLiving() instanceof EntityPlayer) {
 			EntityPlayer killer = (EntityPlayer) event.getSource().getTrueSource();
@@ -51,6 +55,10 @@ public final class AutoEZHack extends Hack {
 					sendWord = sendWord.replace("{self}", killer.getName());
 				} else {
 					sendWord = sendWord.replace("{self}", "我");
+				}
+				if (this.withClientName.isChecked()){
+					sendWord = sendWord.concat(" --Chinese ForgeWurst");
+					return;
 				}
 				CPacketChatMessage chatMsg = new CPacketChatMessage(sendWord);
 				WMinecraft.getMinecraft().getConnection().sendPacket(chatMsg);

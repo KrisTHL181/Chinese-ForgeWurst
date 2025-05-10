@@ -42,7 +42,7 @@ public final class RadarHack extends Hack {
 
 	private final SliderSetting radius = new SliderSetting("半径",
 			"方块半径.", 100, 1, 100, 1, ValueDisplay.INTEGER);
-	private final CheckboxSetting rotate = new CheckboxSetting("跟玩家一起旋转", true);
+	private final CheckboxSetting rotate = new CheckboxSetting("随玩家旋转", true);
 
 	private final CheckboxSetting filterPlayers = new CheckboxSetting(
 			"过滤玩家", "不显示其他玩家.", false);
@@ -53,7 +53,7 @@ public final class RadarHack extends Hack {
 	private final CheckboxSetting filterAnimals = new CheckboxSetting(
 			"过滤动物", "不显示猪, 牛之类的动物.", false);
 	private final CheckboxSetting filterInvisible = new CheckboxSetting(
-			"过滤隐身", "过滤隐身的实体.", false);
+			"过滤隐身", "不显示隐身的实体.", false);
 
 	public RadarHack() {
 		super("雷达",
