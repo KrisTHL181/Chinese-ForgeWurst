@@ -20,7 +20,12 @@ public final class WorldDupCmd extends Command {
 	public void call(String[] args) throws CmdException {
         if (args.length != 1)
             throw new CmdSyntaxError();
-		long originalSeed = Long.parseLong(args[0]);
+		long originalSeed;
+		try {
+			 originalSeed = Long.parseLong(args[0]);
+		} catch (NumberFormatException e) {
+			throw new CmdSyntaxError("错误的种子格式: " + args[0]);	
+		}
 		long posDupSeed = originalSeed + (1L << 48);
 		long negDupSeed = originalSeed - (1L << 48);
 		ChatUtils.message("镜像种子: " + posDupSeed + "\n镜像种子: " + negDupSeed);

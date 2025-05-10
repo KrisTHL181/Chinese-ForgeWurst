@@ -59,7 +59,6 @@ public final class HackList extends WHackList
 	public final NoFallHack noFallHack = register(new NoFallHack());
 	public final NoHurtcamHack noHurtcamHack = register(new NoHurtcamHack());
 	public final NoWebHack noWebHack = register(new NoWebHack());
-	public final NoKnockbackHack noKnockbackHack = register(new NoKnockbackHack());
 	public final NukerHack nukerHack = register(new NukerHack());
 	public final PlayerEspHack playerEspHack = register(new PlayerEspHack());
 	public final RadarHack radarHack = register(new RadarHack());
