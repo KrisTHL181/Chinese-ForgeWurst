@@ -39,6 +39,7 @@ public final class HackList extends WHackList
 	public final AutoToolHack autoToolHack = register(new AutoToolHack());
 	public final AutoWalkHack autoWalkHack = register(new AutoWalkHack());
 	public final BlinkHack blinkHack = register(new BlinkHack());
+	public final BoatFlyHack boatFlyHack = register(new BoatFlyHack());
 	public final BunnyHopHack bunnyHopHack = register(new BunnyHopHack());
 	public final ChestEspHack chestEspHack = register(new ChestEspHack());
 	public final ClickGuiHack clickGuiHack = register(new ClickGuiHack());
