@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2017 - 2019 | Wurst-Imperium | All rights reserved.
- *
+ * Modified by KrisTHL181 in 2025
+ * 
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
  * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -15,7 +16,6 @@ import net.wurstclient.forge.compatibility.WMinecraft;
 import net.wurstclient.forge.settings.EnumSetting;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
-import net.wurstclient.forge.utils.ChatUtils;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.wurstclient.forge.settings.CheckboxSetting;
 

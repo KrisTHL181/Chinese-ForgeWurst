@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2017 - 2019 | Wurst-Imperium | All rights reserved.
- *
+ * Modified by KrisTHL181 in 2025
+ * 
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
  * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -12,7 +13,7 @@ import net.wurstclient.forge.Command;
 
 public final class Log4jCmd extends Command {
     public Log4jCmd() {
-        super("log4j", "试图使用Log4j漏洞注入服务器.", "语法: .log4j <LDAP IP> <LDAP端口>\n" + "警告: 此功能需要在聊天框中发送信息, 且无法检测是否成功.");
+        super("log4j", "试图使用Log4j漏洞注入服务器. 注: 您需要先搭建好Log4j Class提供端", "语法: .log4j <LDAP IP> <LDAP端口>\n" + "警告: 此功能需要在聊天框中发送信息, 且无法检测是否成功.");
     }
 
     @Override
