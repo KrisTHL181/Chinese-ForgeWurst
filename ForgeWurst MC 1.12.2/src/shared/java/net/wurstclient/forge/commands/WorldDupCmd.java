@@ -23,7 +23,7 @@ public final class WorldDupCmd extends Command {
 		long originalSeed = Long.parseLong(args[0]);
 		long posDupSeed = originalSeed + (1L << 48);
 		long negDupSeed = originalSeed - (1L << 48);
-		ChatUtils.message("镜像种子: " + dupSeed + "\n镜像种子: " + negDupSeed);
+		ChatUtils.message("镜像种子: " + posDupSeed + "\n镜像种子: " + negDupSeed);
 		/*
 			* "镜像种子"的定义: 每个Minecraft世界创建都有一个Seed种子, 在1.16.5前他都是通过内置的Random类来进行的.
 			* 而内置的Random类采用的是LCG算法, 虽构造Random类时接受Long型(64位). 但是内部表示使用的状态仅有48位,
