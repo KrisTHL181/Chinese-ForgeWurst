@@ -7,14 +7,12 @@
  */
 package net.wurstclient.forge.hacks;
 
-import java.lang.Double;
 
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.Entity;
 import net.wurstclient.forge.utils.ChatUtils;
-import net.wurstclient.fmlevents.WUpdateEvent;
 import net.wurstclient.forge.settings.SliderSetting;
 import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.forge.Category;

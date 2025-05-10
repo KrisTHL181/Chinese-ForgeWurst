@@ -10,5 +10,6 @@
         }
     ],
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.search.scope": "all"
+    "java.search.scope": "all",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

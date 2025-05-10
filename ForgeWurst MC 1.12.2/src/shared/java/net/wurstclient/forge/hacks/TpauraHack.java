@@ -60,7 +60,6 @@ public final class TpauraHack extends Hack {
 	@SubscribeEvent
 	public void onUpdate(WUpdateEvent event) {
 		EntityPlayerSP player = event.getPlayer();
-		World world = WPlayer.getWorld(player);
 
 		if (resetPos){
 			posX = player.posX;

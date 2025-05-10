@@ -9,7 +9,6 @@ package net.wurstclient.forge.hacks;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.wurstclient.fmlevents.WUpdateEvent;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -18,7 +17,6 @@ import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 import net.wurstclient.forge.settings.CheckboxSetting;
 import net.wurstclient.forge.settings.SliderSetting;
-import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
 
 public final class BoatFlyHack extends Hack {
     private final CheckboxSetting changeForwardSpeed = new CheckboxSetting(
