@@ -16,14 +16,14 @@ import net.minecraft.entity.Entity;
 import net.wurstclient.forge.utils.ChatUtils;
 import net.wurstclient.fmlevents.WUpdateEvent;
 import net.wurstclient.forge.settings.SliderSetting;
-import net.wurstclient.forge.settings.SliderSetting.LongValueDisplay;
+import net.wurstclient.forge.settings.SliderSetting.ValueDisplay;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 
 public final class RandarHack extends Hack
 {
     private final SliderSetting seedSlider =
-		new SliderSetting("世界种子", -4172144997902289642L, -9223372036854775808L, 9223372036854775807L, 1, LongValueDisplay.INTEGER);
+		new SliderSetting("世界种子", -4172144997902289642L, -9223372036854775808L, 9223372036854775807L, 1, ValueDisplay.INTEGER);
 
 	public RandarHack()
 	{
