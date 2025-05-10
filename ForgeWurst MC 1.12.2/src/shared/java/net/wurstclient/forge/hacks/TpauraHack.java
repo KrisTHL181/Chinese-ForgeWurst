@@ -10,10 +10,8 @@ package net.wurstclient.forge.hacks;
 import java.util.Random;
 
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.world.World;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
-import net.wurstclient.forge.compatibility.WPlayer;
 import net.wurstclient.fmlevents.WUpdateEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

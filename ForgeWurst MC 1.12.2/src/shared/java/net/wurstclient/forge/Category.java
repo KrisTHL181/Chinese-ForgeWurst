@@ -13,7 +13,7 @@ public enum Category {
 	COMBAT("战斗"),
 	RENDER("渲染"),
 	CHAT("聊天"),
-	FUN("玩笑"),
+	FUN("娱乐"),
 	OTHER("其他");
 
 	private final String name;

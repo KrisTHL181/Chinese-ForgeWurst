@@ -22,7 +22,6 @@ import net.minecraftforge.fml.common.asm.transformers.deobf.FMLDeobfuscatingRema
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.wurstclient.forge.clickgui.ClickGui;
-import net.wurstclient.forge.compatibility.WMinecraft;
 import net.wurstclient.forge.update.WurstUpdater;
 
 @Mod(modid = ForgeWurst.MODID, version = ForgeWurst.VERSION, updateJSON = "https://raw.githubusercontent.com/KrisTHL181/Chinese-ForgeWurst/master/update.json")
