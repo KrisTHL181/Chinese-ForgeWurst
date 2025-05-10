@@ -9,5 +9,6 @@
             "path": "E:\\java\\Zulu8\\"
         }
     ],
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.search.scope": "all"
 }
