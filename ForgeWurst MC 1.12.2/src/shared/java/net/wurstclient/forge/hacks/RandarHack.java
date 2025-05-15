@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2017 - 2019 | Wurst-Imperium | All rights reserved.
- *
+ * Modified by KrisTHL181 in 2025
+ * 
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
  * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -22,12 +23,16 @@ public final class RandarHack extends Hack
 {
     private final SliderSetting seedSlider =
 		new SliderSetting("世界种子", -4172144997902289642L, -9223372036854775808L, 9223372036854775807L, 1, ValueDisplay.INTEGER);
+    private final SliderSetting searchingRange =
+		new SliderSetting("RNG演化次数", "限制RNG搜索器演化的最大次数. \n默认值5000是一个经验值: 太大的参数可能使得游戏缓慢, 过小的值可能无法找到目标.\n见https://github.com/spawnmason/randar-explanation了解具体原理.", 5000, 500, 10000, 1, ValueDisplay.INTEGER);
+    // SliderSetting是用的double存的数字, 但我这边得存long... 还不明白怎么搞成long类型的时候也不破坏现有代码，等什么时候有头绪来再往HackList注册这个东西
 
 	public RandarHack()
 	{
-		super("RND雷达", "让你能够通过挖掘方块定位他人坐标.\n请使用'.setslider RND雷达 世界种子 <种子>'设定服务器种子而非滑动滑块.");
+		super("RNG雷达", "让你能够通过挖掘方块定位他人坐标.\n请使用'.setslider RNG雷达 世界种子 <种子>'设定服务器种子而非滑动滑块.");
 		setCategory(Category.MOVEMENT);
         addSetting(seedSlider);
+        addSetting(searchingRange);
 	}
 
 	@Override
@@ -72,7 +77,7 @@ public final class RandarHack extends Hack
             return;
         }
         long origSeed = seed;
-        for (int i = 0; i < 5000; i++) {
+        for (int i = 0; i < searchingRange.getValueI(); i++) {
             for (int x = -23440; x <= 23440; x++) {
                 long z = (((seed ^ 25214903917L) - (long)seedSlider.getValue() - 10387319 - x * 341873128712L) * 211541297333629L) << 16 >> 16;
                 if (z >= -23440 && z <= 23440) {

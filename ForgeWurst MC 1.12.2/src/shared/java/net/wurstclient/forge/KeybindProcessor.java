@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2017 - 2019 | Wurst-Imperium | All rights reserved.
- *
+ * Modified by KrisTHL181 in 2025
+ * 
  * This source code is subject to the terms of the GNU General Public
  * License, version 3. If a copy of the GPL was not distributed with this
  * file, You can obtain one at: https://www.gnu.org/licenses/gpl-3.0.txt
@@ -11,6 +12,8 @@ import org.lwjgl.input.Keyboard;
 
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiChat;
 
 public final class KeybindProcessor {
 	private final HackList hax;
@@ -29,6 +32,14 @@ public final class KeybindProcessor {
 		int keyCode = Keyboard.getEventKey();
 		if (keyCode == 0 || !Keyboard.getEventKeyState())
 			return;
+
+		if (keyCode == Keyboard.KEY_PERIOD || keyCode == Keyboard.KEY_DECIMAL) {
+			Minecraft mc = Minecraft.getMinecraft();
+			if (mc.currentScreen == null) {
+				mc.displayGuiScreen(new GuiChat(".")); // 以"."为默认内容初始化命令行
+			}
+			return;
+		}
 
 		String commands = keybinds.getCommands(Keyboard.getKeyName(keyCode));
 		if (commands == null)

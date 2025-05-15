@@ -23,7 +23,7 @@ public final class FastLadderHack extends Hack
 	{
 		super("快速爬梯", "让你能更快的爬上梯子.");
 		setCategory(Category.MOVEMENT);
-		addSetting(climbingSpeed)
+		addSetting(climbingSpeed);
 	}
 	
 	@Override
