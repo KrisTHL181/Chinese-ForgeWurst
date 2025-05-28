@@ -6,7 +6,7 @@
 
 ## 如何将这个项目编译为.JAR文件
 
-在 `ForgeWurst\ForgeWurst MC 1.12.2\`下运行 `gradlew build.bat` 即可. 也可直接运行根目录下的`build.bat`。
+在 `ForgeWurst\ForgeWurst MC 1.12.2\`下运行 `gradlew build.bat` 即可. 也可直接运行根目录下的 `build.bat`。
 
 ## 许可和法律事务
 
@@ -27,4 +27,4 @@
 * 删除了 MC 1.10.2 版本的支持 (删除了README.md中相应的文本)
 * 在命令中加入了一些实用功能（如WorldDup、IP）
 * 加入了部分功能 (如TpAura、BoatFly等)
-* 将一些只有侵入客户端（原版Wurst有两个版本：一个是侵入原版客户端的，一个是Forge版但已停更）才有的功能移植到了该Forge版本上
+* 将一些只有侵入客户端（原版Wurst有两个版本：一个是侵入原版客户端的，一个是Forge版但已停更）才有的功能移植到了该Forge版本上。

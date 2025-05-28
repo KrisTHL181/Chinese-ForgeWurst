@@ -57,6 +57,7 @@ public final class HackList extends WHackList
 	public final MobSpawnEspHack mobSpawnEspHack =
 		register(new MobSpawnEspHack());
 	public final TpauraHack tpauraHack = register(new TpauraHack());
+	public final NocomCrashHack nocomCrashHack = register(new NocomCrashHack());
 	public final NoFallHack noFallHack = register(new NoFallHack());
 	public final NoHurtcamHack noHurtcamHack = register(new NoHurtcamHack());
 	public final NoWebHack noWebHack = register(new NoWebHack());

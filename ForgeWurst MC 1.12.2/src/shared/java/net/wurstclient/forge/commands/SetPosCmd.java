@@ -33,7 +33,5 @@ public final class SetPosCmd extends Command {
 
 		EntityPlayerSP player = WMinecraft.getPlayer();
 		player.setPosition(posX, posY, posZ);
-
-        // 使用 Double 来避免用户输入大于 IntMax .
 	}
 }

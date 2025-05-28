@@ -21,7 +21,7 @@ import net.wurstclient.forge.settings.EnumSetting;
 public final class BunnyHopHack extends Hack
 {
 	private final EnumSetting<JumpIf> jumpIf =
-		new EnumSetting<>("如果", JumpIf.values(), JumpIf.SPRINTING);
+		new EnumSetting<>("触发条件", JumpIf.values(), JumpIf.SPRINTING);
 	
 	public BunnyHopHack()
 	{
