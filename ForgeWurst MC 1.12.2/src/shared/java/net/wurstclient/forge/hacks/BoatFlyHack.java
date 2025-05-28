@@ -26,7 +26,7 @@ public final class BoatFlyHack extends Hack {
 		false);
 
 	private final SliderSetting forwardSpeed = new SliderSetting(
-		"前进速度", 1, 0.05, 5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
+		"前进速度", 1, 0.05, 10, 0.05, SliderSetting.ValueDisplay.DECIMAL);
 	
 	private final SliderSetting upwardSpeed = new SliderSetting("向上速度",
 		0.3, 0, 5, 0.05, SliderSetting.ValueDisplay.DECIMAL);
