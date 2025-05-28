@@ -43,6 +43,7 @@ public final class HackList extends WHackList
 	public final BunnyHopHack bunnyHopHack = register(new BunnyHopHack());
 	public final ChestEspHack chestEspHack = register(new ChestEspHack());
 	public final ClickGuiHack clickGuiHack = register(new ClickGuiHack());
+	public final ExtraElytraHack extraElytraHack = register(new ExtraElytraHack());
 	public final FastBreakHack fastBreakHack = register(new FastBreakHack());
 	public final FastLadderHack fastLadderHack = register(new FastLadderHack());
 	public final FastPlaceHack fastPlaceHack = register(new FastPlaceHack());
