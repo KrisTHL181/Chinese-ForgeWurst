@@ -11,10 +11,10 @@ package net.wurstclient.forge.commands;
 import net.wurstclient.forge.Command;
 import net.wurstclient.forge.utils.ChatUtils;
 
-public final class WorldDupCmd extends Command {
-	public WorldDupCmd() {
-		super("worlddup", "让你可以通过一个已知种子生成'镜像种子'.",
-				"语法: .worlddup <已知种子>");
+public final class SeedDupCmd extends Command {
+	public SeedDupCmd() {
+		super("seeddup", "让你可以通过一个已知种子生成'镜像种子'.",
+				"语法: .seeddup <已知种子>");
 	}
 
 	@Override
