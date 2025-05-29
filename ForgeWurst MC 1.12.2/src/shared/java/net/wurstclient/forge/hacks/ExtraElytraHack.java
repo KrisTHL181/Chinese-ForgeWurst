@@ -10,16 +10,13 @@ package net.wurstclient.forge.hacks;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.util.text.TextComponentString;
 import net.wurstclient.forge.Category;
 import net.wurstclient.forge.Hack;
 import net.wurstclient.forge.settings.CheckboxSetting;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import net.minecraft.network.play.client.CPacketEntityAction;
 
 public final class ExtraElytraHack extends Hack
 {

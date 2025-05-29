@@ -38,7 +38,7 @@ public final class NocomCrashHack extends Hack {
 
     @Override
     public void onEnable() {
-        ChatUtils.message("正在发送数据包, 这大概将花费 " + packets.getValueI() * 10 + "ms.");
+        ChatUtils.message("正在发送数据包, 这大概将花费 " + packets.getValueI() * delay.getValue() + "ms.");
 
         Thread t = new Thread(() -> {
             try {
