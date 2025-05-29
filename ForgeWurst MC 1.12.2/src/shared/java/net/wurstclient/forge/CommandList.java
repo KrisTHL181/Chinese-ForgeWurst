@@ -13,6 +13,7 @@ import net.wurstclient.forge.compatibility.WCommandList;
 public final class CommandList extends WCommandList {
 	public final BindsCmd bindsCmd = register(new BindsCmd());
 	public final ClearCmd clearCmd = register(new ClearCmd());
+	public final DupeCmd dupeCmd = register(new DupeCmd());
 	public final GmCmd gmCmd = register(new GmCmd());
 	public final HelpCmd helpCmd = register(new HelpCmd());
 	public final ShiroCmd shiroCmd = register(new ShiroCmd());
