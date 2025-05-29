@@ -41,6 +41,7 @@ public final class HackList extends WHackList
 	public final BlinkHack blinkHack = register(new BlinkHack());
 	public final BoatFlyHack boatFlyHack = register(new BoatFlyHack());
 	public final BunnyHopHack bunnyHopHack = register(new BunnyHopHack());
+	public final CriticalsHack criticalsHack = register(new CriticalsHack());
 	public final ChestEspHack chestEspHack = register(new ChestEspHack());
 	public final ClickGuiHack clickGuiHack = register(new ClickGuiHack());
 	public final ExtraElytraHack extraElytraHack = register(new ExtraElytraHack());
