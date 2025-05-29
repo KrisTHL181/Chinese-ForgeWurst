@@ -19,6 +19,7 @@ public final class CommandList extends WCommandList {
 	public final ShiroCmd shiroCmd = register(new ShiroCmd());
 	public final Log4jCmd log4jCmd = register(new Log4jCmd());
 	public final SayCmd sayCmd = register(new SayCmd());
+	public final SeedDupCmd seedDupCmd = register(new SeedDupCmd());
 	public final SetCheckboxCmd setCheckboxCmd = register(new SetCheckboxCmd());
 	public final SetEnumCmd setEnumCmd = register(new SetEnumCmd());
 	public final SetPosCmd setPosCmd = register(new SetPosCmd());
@@ -28,5 +29,4 @@ public final class CommandList extends WCommandList {
 	public final NyancatCmd NyancatCmd = register(new NyancatCmd());
 	public final VClipCmd vClipCmd = register(new VClipCmd());
 	public final VrTweaksCmd vrTweaksCmd = register(new VrTweaksCmd());
-	public final WorldDupCmd worldDupCmd = register(new WorldDupCmd());
 }
