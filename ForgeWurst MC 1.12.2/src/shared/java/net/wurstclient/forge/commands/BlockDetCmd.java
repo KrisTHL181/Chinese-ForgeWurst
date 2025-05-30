@@ -11,6 +11,7 @@ package net.wurstclient.forge.commands; // Assuming your commands are in this pa
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
 import net.minecraft.network.play.server.SPacketBlockChange;
 import net.minecraft.network.play.server.SPacketChunkData;
@@ -119,11 +120,7 @@ public final class BlockDetCmd extends Command {
         S_probeStartTime = System.currentTimeMillis();
 
         // Create and send the packet
-        CPacketPlayerTryUseItemOnBlock packet = new CPacketPlayerTryUseItemOnBlock(
-                target, // Use the passed 'target' parameter
-                facing, 
-                EnumHand.MAIN_HAND, 
-                0.5F, 0.5F, 0.5F);
+        CPacketPlayerDigging packet = new CPacketPlayerDigging(CPacketPlayerDigging.Action.START_DESTROY_BLOCK, S_targetPos, facing);
         networkHandler.sendPacket(packet);
     }
 
