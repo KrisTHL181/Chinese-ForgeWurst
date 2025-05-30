@@ -25,6 +25,6 @@
 * 已全部翻译为中文 (人工翻译!)
 * 合并了原仓库下的一个修复NullPointerException的补丁([https://github.com/Wurst-Imperium/ForgeWurst/pull/2](https://github.com/Wurst-Imperium/ForgeWurst/pull/2))
 * 删除了 MC 1.10.2 版本的支持 (删除了README.md中相应的文本)
-* 在命令中加入了一些实用功能（如WorldDup、IP）
+* 在命令中加入了一些实用功能（如SeedDup、IP）
 * 加入了部分功能 (如TpAura、BoatFly等)
 * 将一些只有侵入客户端（原版Wurst有两个版本：一个是侵入原版客户端的，一个是Forge版但已停更）才有的功能移植到了该Forge版本上。
