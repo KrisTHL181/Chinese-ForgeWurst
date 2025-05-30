@@ -1,5 +1,6 @@
 @echo off
 @chcp 65001 > nul
+@set %GRADLE_EXIT_CONSOLE% = true
 cd "ForgeWurst MC 1.12.2" 1>nul 2>nul
 if %ERRORLEVEL% equ 0 (echo === [+] CHANGE WORKING DIRECTORY [+]===)
 echo === CURRENT DIRECTORY: %cd% ===
@@ -11,9 +12,10 @@ set buildArg=-Dorg.gradle.jvmargs="--add-opens=java.base/java.lang=ALL-UNNAMED" 
 echo [INFO] Building params: %buildArg%
 gradlew build %buildArg%
 if %ERRORLEVEL% equ 0 (
-    ECHO === BUILD SUCCESS! ===
+    echo === BUILD SUCCESS! ===
     copy .\build\libs\*.jar ..
     cd ..
+    explorer .
 ) else (
     echo === [-] BUILD FAILED :( ===
     cd ..

@@ -14,10 +14,9 @@ import javax.annotation.Nullable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetHandlerPlayClient;
-import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
+import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.network.play.server.SPacketBlockChange;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -77,8 +76,7 @@ public final class NocomUtils {
 
         EnumFacing facingToUse = (facingOverride != null) ? facingOverride : EnumFacing.DOWN;
 
-        CPacketPlayerTryUseItemOnBlock packet = new CPacketPlayerTryUseItemOnBlock(
-                S_currentTargetPos, facingToUse, EnumHand.MAIN_HAND, 0.5F, 0.5F, 0.5F);
+        CPacketPlayerDigging packet = new CPacketPlayerDigging(CPacketPlayerDigging.Action.START_DESTROY_BLOCK, S_currentTargetPos, facingToUse);
         networkHandler.sendPacket(packet);
 
         long startTime = System.currentTimeMillis();

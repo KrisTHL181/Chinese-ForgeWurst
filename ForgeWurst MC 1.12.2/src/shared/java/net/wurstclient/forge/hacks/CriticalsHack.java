@@ -46,7 +46,7 @@ public final class CriticalsHack extends Hack
     }
 
     @SubscribeEvent
-    public void onPlayerAttack(AttackEntityEvent event)
+    public void onLivingAttack(AttackEntityEvent event)
     {
         if (!event.getEntityPlayer().equals(mc.player)) {
             return;
