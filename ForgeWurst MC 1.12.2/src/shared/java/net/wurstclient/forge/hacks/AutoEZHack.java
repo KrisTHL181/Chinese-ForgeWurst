@@ -58,7 +58,6 @@ public final class AutoEZHack extends Hack {
 				}
 				if (this.withClientName.isChecked()){
 					sendWord = sendWord.concat(" --Chinese ForgeWurst");
-					return;
 				}
 				CPacketChatMessage chatMsg = new CPacketChatMessage(sendWord);
 				mc.getConnection().sendPacket(chatMsg);
