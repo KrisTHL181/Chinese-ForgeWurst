@@ -16,6 +16,8 @@ out
 # gradle
 build
 .gradle
+hs_err_pid*.log
+replay_pid*.log
 
 # other
 eclipse
