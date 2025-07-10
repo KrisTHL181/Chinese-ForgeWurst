@@ -40,7 +40,7 @@ public final class BlockDetCmd extends Command {
 
 
     public BlockDetCmd() {
-        super("blockdet", "探测某一坐标的方块 (Uses NoCom logic).", "语法: .blockdet <x> <y> <z> [facing]");
+        super("blockdet", "探测某一坐标的方块 (基于NoCom漏洞).", "语法: .blockdet <x> <y> <z> [facing]");
         
         // Register listeners ONCE. This constructor might be called multiple times
         // depending on Wurst's command registration. Ideally, register in client setup.
@@ -98,8 +98,8 @@ public final class BlockDetCmd extends Command {
         // 5. If execution reaches here, probe initiation was successful (no early exit)
         // Display initial messages to the user
         ChatUtils.message("已发送方块探测数据包至 " + x + ", " + y + ", " + z + " (朝向 " + facing.getName() + "). 等待服务器响应...");
-        ChatUtils.message("如果探测到方块，将会显示一条信息。");
-        ChatUtils.message("如果超时（" + (PROBE_TIMEOUT_MS / 1000) + " 秒）未收到特定响应，则假定为空气或未加载。");
+        // ChatUtils.message("如果探测到方块，将会显示一条信息。");
+        // ChatUtils.message("如果超时（" + (PROBE_TIMEOUT_MS / 1000) + " 秒）未收到特定响应，则假定为空气或未加载。");
     }
 
     /**
