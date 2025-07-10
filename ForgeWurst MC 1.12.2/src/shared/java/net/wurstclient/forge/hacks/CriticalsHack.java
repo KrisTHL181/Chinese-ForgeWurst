@@ -28,7 +28,7 @@ public final class CriticalsHack extends Hack
 
     public CriticalsHack()
     {
-        super("强制暴击", "让你的每次攻击都可以是暴击."); // 假设 Hack 基类构造函数不变
+        super("强制暴击", "让你的每次攻击都可以是暴击.");
         setCategory(Category.COMBAT);
         addSetting(mode);
     }
@@ -48,10 +48,6 @@ public final class CriticalsHack extends Hack
     @SubscribeEvent
     public void onLivingAttack(AttackEntityEvent event)
     {
-        if (!event.getEntityPlayer().equals(mc.player)) {
-            return;
-        }
-
         Entity target = event.getTarget();
 
         if (!(target instanceof EntityLivingBase))
